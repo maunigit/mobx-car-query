@@ -6,7 +6,7 @@ import { ListItem } from 'react-native-elements';
 
 @inject('store')
 @observer
-export default class ModelsScreen extends React.Component {
+export default class InfoScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Info',
