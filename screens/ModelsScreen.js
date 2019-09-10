@@ -21,7 +21,9 @@ export default class ModelsScreen extends React.Component {
   keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => (
-    <ListItem button onPress={() => {
+    <ListItem
+      button
+      onPress={() => {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
