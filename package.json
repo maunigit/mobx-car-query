@@ -18,5 +18,7 @@
     "react-navigation": "4.0.0",
     "react-navigation-stack": "1.5.3"    
   },
-  "eslintConfig": {"extends": "universe/native"}
+  "eslintConfig": {
+    "extends": "universe/native"
+  }
 }
