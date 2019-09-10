@@ -20,5 +20,8 @@
   },
   "eslintConfig": {
     "extends": "universe/native"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
