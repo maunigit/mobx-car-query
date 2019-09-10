@@ -8,6 +8,7 @@
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
     "@react-navigation/native": "^3.6.2",
+    "babel-preset-expo": "^5.2.0",
     "expo": "^34.0.0",
     "mobx": "^5.0.0",
     "mobx-react": "6.1.3",
