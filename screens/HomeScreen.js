@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
 
 @inject('store')
 @observer
