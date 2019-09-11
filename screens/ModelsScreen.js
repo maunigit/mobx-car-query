@@ -4,8 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 
-@inject('store')
-@observer
+@inject('store') @observer
 export default class ModelsScreen extends React.Component {
   
   static navigationOptions = {

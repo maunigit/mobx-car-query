@@ -2,8 +2,7 @@ import React from 'react';
 import { Button, View } from 'react-native';
 import { observer, inject } from 'mobx-react';
 
-@inject('store')
-@observer
+@inject('store') @observer
 export default class HomeScreen extends React.Component {
   
   constructor(props) {
