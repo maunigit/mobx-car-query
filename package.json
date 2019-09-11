@@ -20,13 +20,24 @@
     "react-navigation": "4.0.0",
     "react-navigation-stack": "1.5.3"
   },
-  "eslintConfig": {
-    "extends": "universe/native"
-  },
-  "scripts": {
-    "test": "jest"
-  },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.6.0"
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "babel-core": "^7.0.0-bridge",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-expo": "^6.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-universe": "^1.0.7",
+    "googleapis": "^42.0.0",
+    "jest": "^24.8.0",
+    "jest-expo": "^34.0.0",
+    "prettier": "^1.18.2"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "modulePathIgnorePatterns": [
+      ".yarn",
+      ".npm"
+    ]
   }
 }
