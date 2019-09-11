@@ -17,5 +17,8 @@
     "@react-navigation/core": "^3.5.0",
     "react-navigation-stack": "1.5.3",
     "@react-navigation/native": "^3.6.2"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^6.0.0"
   }
 }
