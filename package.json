@@ -1,7 +1,7 @@
 {
   "name": "carqueryapp",
   "version": "0.0.0",
-  "description": "Use for keep result of CarQueryApi in more screens",
+  "description": "CarQueryApi example",
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
