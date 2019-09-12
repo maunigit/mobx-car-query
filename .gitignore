@@ -240,3 +240,4 @@ fastlane/readme.md
 
 yarn.lock
 package-lock.json
+assets/images/png-cars/*

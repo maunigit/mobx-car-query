@@ -2,8 +2,8 @@ try {
 	svg_to_png = require('svg-to-png');
 	let resolve = require('path').resolve;
 	console.log('CONVERSION IS LOADING...');
-	input = resolve('.\\img\\svg-cars');
-	output = resolve('.\\img\\png-cars');
+	input = resolve('.\\assets\\images\\svg-cars');
+	output = resolve('.\\assets\\images\\png-cars');
   } catch (e) {
 	console.log(e);
   }
