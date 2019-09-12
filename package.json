@@ -1,7 +1,7 @@
 {
-  "name": "mobx",
+  "name": "CarQuery app",
   "version": "0.0.0",
-  "description": "7) Use for keep result of CarQueryApi in more screens",
+  "description": "Use for keep result of CarQueryApi in more screens",
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
