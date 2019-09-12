@@ -18,10 +18,11 @@
     "react-native-paper": "2.16.0",
     "react-native-reanimated": "^1.1.0",
     "react-navigation": "4.0.0",
-    "react-navigation-stack": "1.5.3",
-    "svg-to-png": "^4.0.0"
+    "react-navigation-stack": "1.5.3"
   },
   "devDependencies": {
-    "babel-preset-expo": "^6.0.0"
+    "babel-preset-expo": "^6.0.0",
+    "svg-to-png": "^4.0.0",
+    "path": "^0.12.7"
   }
 }
