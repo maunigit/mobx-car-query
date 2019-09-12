@@ -26,6 +26,7 @@ export default class ModelsScreen extends React.Component {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
+      leftAvatar={{ source: require('../img/alfa-romeo.svg') }}
       bottomDivider
       chevron
     />
