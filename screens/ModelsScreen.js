@@ -26,11 +26,26 @@ export default class ModelsScreen extends React.Component {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
-      leftAvatar={{ source: require('../img/alfa-romeo.svg') }}
+      leftAvatar={{ source: require('../assets/images/png-cars/abarth.png')}}
       bottomDivider
       chevron
     />
   );
+
+  /*checkPngCars = (id) =>{
+    let pngFolderPath = '../assets/images/png-cars/';
+    let imgFormat = '.png'
+    let make_id= '';
+    make_id=id;
+    let pngCar= pngFolderPath+make_id+imgFormat;
+    if (RNFS.exists(pngCar)){
+      console.log(make_id + " EXIST");
+      return pngCar;
+    } else {
+      console.log("make_id.png DOES NOT EXIST, WE SET A DEFAULT .PNG");
+      return pngFolderPath+'carSymbolNotAvailable'+imgFormat;
+      }
+  }*/
 
   showCarData = () => {
     if (this.props.store.data) {
