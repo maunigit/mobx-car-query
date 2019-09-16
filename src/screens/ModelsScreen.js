@@ -1,60 +1,66 @@
-import React from 'react';
-import { View } from 'react-native';
-import { observer, inject } from 'mobx-react';
-import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import React from "react";
+import { View, StyleSheet, Image} from "react-native";
+import { observer, inject } from "mobx-react";
+import { FlatList } from "react-native";
+import { ListItem } from "react-native-elements";
+import { ICONS_CAR } from "../constantsCars";
 
-@inject('store') @observer
+@inject("store")
+@observer
 export default class ModelsScreen extends React.Component {
-  
   static navigationOptions = {
-    title: 'Models',
+    title: "Models"
   };
 
+  //Store model of the car
   selectedModel = (model, country) => {
+    console.log('selectedModel...');
     this.props.store.model = model;
     this.props.store.country = country;
-    this.props.navigation.navigate('Info');
+    this.props.navigation.navigate("Info");
   };
 
   keyExtractor = (item, index) => index.toString();
 
-  renderItem = ({ item }) => (
+  //Render every item of the list
+  renderItem = ({ item }) => {
+    let iconCar = this.getIconCars(item.make_id);
+    if(false) {
+    return(
     <ListItem
       button
       onPress={() => {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
-      leftAvatar={{ source: require('../assets/images/png-cars/abarth.png')}}
+      leftAvatar={{ source: iconCar }}
       bottomDivider
       chevron
     />
-  );
+    );
+  }else{
+    return(
+      <Image
+      style={{width: 50, height: 50}}
+      source={iconCar} /> 
+    );
+  }    
+  };
 
-  /*checkPngCars = (id) =>{
-    let pngFolderPath = '../assets/images/png-cars/';
-    let imgFormat = '.png'
-    let make_id= '';
-    make_id=id;
-    let pngCar= pngFolderPath+make_id+imgFormat;
-    if (RNFS.exists(pngCar)){
-      console.log(make_id + " EXIST");
-      return pngCar;
-    } else {
-      console.log("make_id.png DOES NOT EXIST, WE SET A DEFAULT .PNG");
-      return pngFolderPath+'carSymbolNotAvailable'+imgFormat;
-      }
-  }*/
+  //Car icon in png
+  getIconCars = iconName => {
+    return ICONS_CAR[iconName];
+  };
 
+  //List of the cars
   showCarData = () => {
     if (this.props.store.data) {
       return (
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={this.props.store.data}
-          renderItem={this.renderItem}
-        />
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={this.props.store.data}
+            renderItem={this.renderItem}
+          />
       );
     } else {
       return null;
@@ -62,10 +68,14 @@ export default class ModelsScreen extends React.Component {
   };
 
   render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        {this.showCarData()}
-      </View>
-    );
+    console.log('rendering...');
+    return (<View style={styles.mainContainer}>{this.showCarData()}</View>);
   }
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    justifyContent: "center",
+    flex: 1
+  }
+});
