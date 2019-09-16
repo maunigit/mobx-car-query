@@ -27,7 +27,7 @@ export default class ModelsScreen extends React.Component {
   renderItem = ({ item }) => {
     let iconCar = this.getIconCars(item.make_id);
     //Debug
-    if(false) {
+    if(true) {
     return(
     <ListItem
       button
