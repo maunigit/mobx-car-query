@@ -3,10 +3,10 @@ import { View, StyleSheet } from 'react-native';
 import { createAppContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Provider } from 'mobx-react';
-import Store from './stores/Store';
-import HomeScreen from './screens/HomeScreen';
-import ModelsScreen from './screens/ModelsScreen';
-import InfoScreen from './screens/InfoScreen';
+import Store from './src/stores/Store';
+import HomeScreen from './src/screens/HomeScreen';
+import ModelsScreen from './src/screens/ModelsScreen';
+import InfoScreen from './src/screens/InfoScreen';
 
 const RootStack = createStackNavigator(
   {
