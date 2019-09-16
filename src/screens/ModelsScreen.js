@@ -8,6 +8,7 @@ import { ICONS_CAR } from "../constantsCars";
 @inject("store")
 @observer
 export default class ModelsScreen extends React.Component {
+  //Screen navigation
   static navigationOptions = {
     title: "Models"
   };
@@ -25,6 +26,7 @@ export default class ModelsScreen extends React.Component {
   //Render every item of the list
   renderItem = ({ item }) => {
     let iconCar = this.getIconCars(item.make_id);
+    //Debug
     if(false) {
     return(
     <ListItem
@@ -47,8 +49,13 @@ export default class ModelsScreen extends React.Component {
   }    
   };
 
-  //Car icon in png
-  getIconCars = iconName => {
+  //Cars png
+  getIconCars = (iconName) => {
+    let icon= ICONS_CAR[iconName];
+    //Default car icon if we haven't the corresponding png
+    if(!icon){
+      iconName='circle_grey';
+    }
     return ICONS_CAR[iconName];
   };
 
@@ -67,12 +74,14 @@ export default class ModelsScreen extends React.Component {
     }
   };
 
+  //Show cars list
   render() {
     console.log('rendering...');
     return (<View style={styles.mainContainer}>{this.showCarData()}</View>);
   }
 }
 
+//Style
 const styles = StyleSheet.create({
   mainContainer: {
     justifyContent: "center",
