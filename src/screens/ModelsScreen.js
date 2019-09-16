@@ -42,9 +42,7 @@ export default class ModelsScreen extends React.Component {
     );
   }else{
     return(
-      <Image
-      style={{width: 50, height: 50}}
-      source={iconCar} /> 
+      <Image style={{width: 50, height: 50}} source={this.iconCar} /> 
     );
   }    
   };
