@@ -15,7 +15,7 @@ export default class InfoScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.paragraph}>
-          Model: {this.props.store.model} Country: {this.props.store.country}
+          Model: {this.props.store.model}
         </Text>
       </View>
     );
