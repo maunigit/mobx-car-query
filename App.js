@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import ModelsScreen from "./src/screens/ModelsScreen";
 import InfoScreen from "./src/screens/InfoScreen";
 
+//Navigation roots
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -16,7 +17,7 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: "Home",
-    /* The header config from HomeScreen is now here */
+    //Screen header config
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "black"
@@ -31,9 +32,11 @@ const RootStack = createStackNavigator(
 
 const AppContainer = createAppContainer(RootStack);
 
+//Navigable app
 export default class App extends React.Component {
   render() {
     return (
+      //For store use
       <Provider store={Store}>
         <View style={styles.container}>
           <AppContainer />
@@ -43,6 +46,7 @@ export default class App extends React.Component {
   }
 }
 
+//Style
 const styles = StyleSheet.create({
   container: {
     flex: 1,
