@@ -9,38 +9,41 @@ export default class HomeScreen extends React.Component {
     super(props);
   }
 
+  //Screen navigation
   static navigationOptions = {
     title: "Home"
   };
 
-  //asynch version of the fetch
-  fetchAsyncCarApi = async url => {
+  //Asynch fetch of cars
+  fetchAsyncCar = async url => {
     try {
       let response = await fetch(url);
       let data = await response.json();
+      //Store Makes
       this.props.store.data = data.Makes;
-      //print Makes object
+      //Print Makes object
       console.log(JSON.stringify(data.Makes));
     } catch (error) {
       alert(error);
     }
   };
 
+  //Define the url to fetch
+  setFetchCar = async () => {
+    var urlCarMakes = "https://www.carqueryapi.com/api/0.3/?&cmd=getMakes";
+    await this.fetchAsyncCar(urlCarMakes);
+  };
+
+  //Fetch car and navigate
   fetchCarAndNavigate = async () => {
-    await this.fetchCar();
+    await this.setFetchCar();
     this.props.navigation.navigate("Models");
   };
 
-  fetchCar = async () => {
-    var urlCarQuery =
-      "https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=ford&year=2010&body=SUV";
-    var urlCarMakes = "https://www.carqueryapi.com/api/0.3/?&cmd=getMakes";
-    await this.fetchAsyncCarApi(urlCarMakes);
-  };
-
+  //Show button to view car models
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.mainContainer}>
         <Button
           title="View Car"
           color="green"
@@ -50,3 +53,8 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
+//Style
+const styles = StyleSheet.create({
+  mainContainer: { flex: 1, alignItems: "center", justifyContent: "center" }
+});
