@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { observer, inject } from "mobx-react";
+import { Button } from 'react-native-paper';
 
 @inject("store")
 @observer
@@ -44,11 +45,10 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Button
-          title="View Car"
-          color="green"
-          onPress={this.fetchCarAndNavigate}
-        />
+        <Button color="green"
+          onPress={this.fetchCarAndNavigate}>
+            View Car
+        </Button>
       </View>
     );
   }
