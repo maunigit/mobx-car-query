@@ -1,9 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, Image, Text } from "react-native";
 import { observer, inject } from "mobx-react";
 import { FlatList } from "react-native";
-import { ListItem } from "react-native-elements";
-import { ICONS_CAR } from "../constantsCars";
+import { MyListItem } from "../components/MyListItem"
 
 @inject("store")
 @observer
@@ -25,24 +24,19 @@ export default class ModelsScreen extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    let iconCar = this.getIconCars(item.make_id);
     //Debug
     if(true) {
     return(
-    <TouchableOpacity>
-    <ListItem button onPress={() => {
+    <MyListItem button onPress={() => {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
-      leftAvatar={{ source: iconCar }}
-      bottomDivider
-      chevron
+      icon={item.make_id}
     />
-    </TouchableOpacity>
     );
     }else{
       return(
-        //Optimize performance view-text version not working
+        //Optimize performance with view-text not solves the problem
         <View style={{flex: 1, flexDirection: 'row'}}>
           <View style={{flex: 1}}>
             <Image style={{width: 50, height: 50}} source={iconCar}/>
@@ -53,16 +47,6 @@ export default class ModelsScreen extends React.Component {
         </View>
       );
     }    
-  };
-
-  //Cars png
-  getIconCars = (iconName) => {
-    let icon= ICONS_CAR[iconName];
-    //Default car icon if we haven't the corresponding png
-    if(!icon){
-      iconName='circle_grey';
-    }
-    return ICONS_CAR[iconName];
   };
 
   //List of the cars
