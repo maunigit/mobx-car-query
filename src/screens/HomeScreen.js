@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View } from "react-native";
+import { Button, View, StyleSheet } from "react-native";
 import { observer, inject } from "mobx-react";
 
 @inject("store")
