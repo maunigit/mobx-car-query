@@ -13,19 +13,23 @@ export default class ModelsScreen extends React.Component {
   };
 
   //Store model of the car
-  selectedModel = (model, country) => {
+  selectedModel = (model) => {
     console.log('SelectedModel...');
     this.props.store.model = model;
-    this.props.store.country = country;
     this.props.navigation.navigate("Info");
   };
 
   keyExtractor = (item, index) => index.toString();
 
+  //Press on car model
+  _onPressItem = (id) => {
+      this.selectedModel(id);
+  }
+
   //Render every item of the list
   renderItem = ({ item }) => {
     return(
-    <MyListItem title={item.make_display}
+    <MyListItem onPressItem={this._onPressItem} title={item.make_display}
       icon={item.make_id}
     />
     ); 
