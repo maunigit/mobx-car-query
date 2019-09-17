@@ -1,8 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { observer, inject } from "mobx-react";
 import { FlatList } from "react-native";
-import { MyListItem } from "../components/MyListItem"
+import MyListItem from "../components/MyListItem";
 
 @inject("store")
 @observer
@@ -24,29 +24,11 @@ export default class ModelsScreen extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    //Debug
-    if(true) {
     return(
-    <MyListItem button onPress={() => {
-        this.selectedModel(item.make_id, item.make_country);
-      }}
-      title={item.make_display}
+    <MyListItem title={item.make_display}
       icon={item.make_id}
     />
-    );
-    }else{
-      return(
-        //Optimize performance with view-text not solves the problem
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <View style={{flex: 1}}>
-            <Image style={{width: 50, height: 50}} source={iconCar}/>
-          </View>
-          <View style={{width: 300, marginTop: 15}}>
-            <Text>{item.make_display}</Text>
-          </View>
-        </View>
-      );
-    }    
+    ); 
   };
 
   //List of the cars

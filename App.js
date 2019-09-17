@@ -36,7 +36,7 @@ const AppContainer = createAppContainer(RootStack);
 export default class App extends React.Component {
   render() {
     return (
-      //For store use
+      //For use the store
       <Provider store={Store}>
         <View style={styles.container}>
           <AppContainer />
