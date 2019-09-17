@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity} from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import { observer, inject } from "mobx-react";
 import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
@@ -41,7 +41,17 @@ export default class ModelsScreen extends React.Component {
     </TouchableOpacity>
     );
     }else{
-      return(<Image style={{width: 50, height: 50}} source={this.iconCar} /> );
+      return(
+      //Optimize performance view-text version not working
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1}}>
+        <Image style={{width: 50, height: 50}} source={iconCar}/>
+        </View>
+        <View style={{width: 300, marginTop: 15}}>
+          <Text>{item.make_display}</Text>
+        </View>
+      </View>
+      );
     }    
   };
 
