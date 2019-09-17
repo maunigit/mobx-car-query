@@ -37,10 +37,10 @@ export default class HomeScreen extends React.Component {
   //Fetch car and navigate
   fetchCarAndNavigate = async () => {
     await this.setFetchCar();
-    this.props.navigation.navigate("Models");
+    this.props.navigation.navigate("Makes");
   };
 
-  //Show button to view car models
+  //Show button to view car makes
   render() {
     return (
       <View style={styles.mainContainer}>

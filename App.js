@@ -5,14 +5,14 @@ import { createStackNavigator } from "react-navigation-stack";
 import { Provider } from "mobx-react";
 import Store from "./src/stores/Store";
 import HomeScreen from "./src/screens/HomeScreen";
-import ModelsScreen from "./src/screens/ModelsScreen";
+import MakesScreen from "./src/screens/MakesScreen";
 import InfoScreen from "./src/screens/InfoScreen";
 
 //Navigation roots
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Models: ModelsScreen,
+    Makes: MakesScreen,
     Info: InfoScreen
   },
   {

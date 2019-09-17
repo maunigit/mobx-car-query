@@ -6,24 +6,24 @@ import MyListItem from "../components/MyListItem";
 
 @inject("store")
 @observer
-export default class ModelsScreen extends React.Component {
+export default class MakesScreen extends React.Component {
   //Screen navigation
   static navigationOptions = {
-    title: "Models"
+    title: "Makes"
   };
 
-  //Store model of the car
-  selectedModel = (model) => {
-    console.log('SelectedModel...');
-    this.props.store.model = model;
+  //Store make of the car
+  selectedMake = (make) => {
+    console.log('SelectedMake...');
+    this.props.store.make = make;
     this.props.navigation.navigate("Info");
   };
 
   keyExtractor = (item, index) => index.toString();
 
-  //Press on car model
+  //Press on car make
   _onPressItem = (id) => {
-      this.selectedModel(id);
+      this.selectedMake(id);
   }
 
   //Render every item of the list

@@ -15,7 +15,7 @@ export default class InfoScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.paragraph}>
-          Model: {this.props.store.model}
+          Make: {this.props.store.make}
         </Text>
       </View>
     );

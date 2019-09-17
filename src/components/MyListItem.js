@@ -15,7 +15,7 @@ export default class MyListItem extends React.PureComponent {
     return ICONS_CAR[iconName];
   };
 
-  //Press on car model
+  //Press on car make
   _onPress = () => {
     this.props.onPressItem(this.props.icon);
   };
