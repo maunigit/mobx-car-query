@@ -14,9 +14,6 @@ export default class ModelsScreen extends React.Component {
   showDetails = () => {
     return (
       <View style={styles.mainContainer}>
-        <Text style={styles.paragraph}>
-          Make: {this.props.store.make}
-        </Text>
       </View>
     );
   };
