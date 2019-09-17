@@ -6,14 +6,14 @@ import { Provider } from "mobx-react";
 import Store from "./src/stores/Store";
 import HomeScreen from "./src/screens/HomeScreen";
 import MakesScreen from "./src/screens/MakesScreen";
-import InfoScreen from "./src/screens/InfoScreen";
+import ModelsScreen from "./src/screens/ModelsScreen";
 
 //Navigation roots
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
     Makes: MakesScreen,
-    Info: InfoScreen
+    Models: ModelsScreen
   },
   {
     initialRouteName: "Home",

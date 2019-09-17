@@ -16,7 +16,7 @@ export default class MakesScreen extends React.Component {
   selectedMake = (make) => {
     console.log('SelectedMake...');
     this.props.store.make = make;
-    this.props.navigation.navigate("Info");
+    this.props.navigation.navigate("Models");
   };
 
   keyExtractor = (item, index) => index.toString();

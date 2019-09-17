@@ -4,13 +4,13 @@ import { observer, inject } from "mobx-react";
 
 @inject("store")
 @observer
-export default class InfoScreen extends React.Component {
+export default class ModelsScreen extends React.Component {
   //Screen navigation
   static navigationOptions = {
-    title: "Info"
+    title: "Models"
   };
 
-  //Info of the car
+  //Models of the car
   showDetails = () => {
     return (
       <View style={styles.mainContainer}>
@@ -21,7 +21,7 @@ export default class InfoScreen extends React.Component {
     );
   };
 
-  //Show car info
+  //Show car models
   render() {
     return (
       <View style={styles.mainContainer}>
