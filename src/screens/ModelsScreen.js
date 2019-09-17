@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image} from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity} from "react-native";
 import { observer, inject } from "mobx-react";
 import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
@@ -27,11 +27,10 @@ export default class ModelsScreen extends React.Component {
   renderItem = ({ item }) => {
     let iconCar = this.getIconCars(item.make_id);
     //Debug
-    if(true) {
+    if(false) {
     return(
-    <ListItem
-      button
-      onPress={() => {
+    <TouchableOpacity>
+    <ListItem button onPress={() => {
         this.selectedModel(item.make_id, item.make_country);
       }}
       title={item.make_display}
@@ -39,12 +38,11 @@ export default class ModelsScreen extends React.Component {
       bottomDivider
       chevron
     />
+    </TouchableOpacity>
     );
-  }else{
-    return(
-      <Image style={{width: 50, height: 50}} source={this.iconCar} /> 
-    );
-  }    
+    }else{
+      return(<Image style={{width: 50, height: 50}} source={this.iconCar} /> );
+    }    
   };
 
   //Cars png
@@ -74,7 +72,7 @@ export default class ModelsScreen extends React.Component {
 
   //Show cars list
   render() {
-    console.log('rendering...');
+    console.log('RENDERING...');
     return (<View style={styles.mainContainer}>{this.showCarData()}</View>);
   }
 }
