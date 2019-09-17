@@ -27,7 +27,7 @@ export default class ModelsScreen extends React.Component {
   renderItem = ({ item }) => {
     let iconCar = this.getIconCars(item.make_id);
     //Debug
-    if(false) {
+    if(true) {
     return(
     <TouchableOpacity>
     <ListItem button onPress={() => {
@@ -42,15 +42,15 @@ export default class ModelsScreen extends React.Component {
     );
     }else{
       return(
-      //Optimize performance view-text version not working
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <View style={{flex: 1}}>
-        <Image style={{width: 50, height: 50}} source={iconCar}/>
+        //Optimize performance view-text version not working
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 1}}>
+            <Image style={{width: 50, height: 50}} source={iconCar}/>
+          </View>
+          <View style={{width: 300, marginTop: 15}}>
+            <Text>{item.make_display}</Text>
+          </View>
         </View>
-        <View style={{width: 300, marginTop: 15}}>
-          <Text>{item.make_display}</Text>
-        </View>
-      </View>
       );
     }    
   };
