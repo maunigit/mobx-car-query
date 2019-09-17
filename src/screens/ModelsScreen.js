@@ -15,7 +15,7 @@ export default class ModelsScreen extends React.Component {
 
   //Store model of the car
   selectedModel = (model, country) => {
-    console.log('selectedModel...');
+    console.log('SelectedModel...');
     this.props.store.model = model;
     this.props.store.country = country;
     this.props.navigation.navigate("Info");
