@@ -15,12 +15,17 @@ export default class MyListItem extends React.PureComponent {
     return ICONS_CAR[iconName];
   };
 
+  //Press on car model
+  _onPress = () => {
+    this.props.onPressItem(this.props.icon);
+  };
+
   //Show cars list
   render() {
     let iconCar = this.getIconCars(this.props.icon);
     return (
       <TouchableOpacity>
-        <ListItem
+        <ListItem button onPress={this._onPress}
           title={this.props.title}
           leftAvatar={
             <Image source={iconCar} style={styles.images} />
