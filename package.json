@@ -16,7 +16,8 @@
     "lint-js": "eslint --ext .jsx --ext .js src/",
     "lint-js:fix": "npm run lint-js -- --fix",
     "prettier": "prettier \"{src}/**/*.js\"",
-    "prettier:fix": "npm run prettier  -- --write"
+    "prettier:fix": "npm run prettier  -- --write",
+    "svgtopng": "node svgtopng.js"
   },
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
