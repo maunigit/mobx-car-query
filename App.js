@@ -1,13 +1,33 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { createAppContainer } from "@react-navigation/native";
-import { createStackNavigator } from "react-navigation-stack";
 import { Provider } from "mobx-react";
 import { DefaultTheme, DarkTheme, Provider as PaperProvider } from 'react-native-paper';
 import Store from "./src/stores/Store";
-import Home from "./src/screens/Home";
-import Makes from "./src/screens/Makes";
-import Models from "./src/screens/Models";
+import AppNavigator from './src/navigation/AppNavigator';
+
+//Navigable app
+export default class App extends React.Component {
+  render() {
+    return (
+      //For use the store
+      <Provider store={Store}>
+        <PaperProvider theme={theme}>
+          <View style={styles.container}>
+            <AppNavigator />
+          </View>
+        </PaperProvider>
+      </Provider>
+    );
+  }
+}
+
+//Style
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  }
+});
 
 //Theme of the app
 const theme = {
@@ -28,53 +48,3 @@ const theme = {
       background: '#6200ee',
   }
 };
-
-
-
-//Navigation roots
-const RootStack = createStackNavigator(
-  {
-    Home: Home,
-    Makes: Makes,
-    Models: Models
-  },
-  {
-    initialRouteName: "Home",
-    //Screen header config
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: "black"
-      },
-      headerTintColor: "#fff",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      }
-    }
-  }
-);
-
-const AppContainer = createAppContainer(RootStack);
-
-//Navigable app
-export default class App extends React.Component {
-  render() {
-    return (
-      //For use the store
-      <Provider store={Store}>
-        <PaperProvider theme={theme}>
-          <View style={styles.container}>
-            <AppContainer />
-          </View>
-        </PaperProvider>
-      </Provider>
-    );
-  }
-}
-
-//Style
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center"
-  }
-});
