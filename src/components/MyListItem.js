@@ -1,6 +1,6 @@
 import React from "react";
-import { Image, TouchableOpacity, StyleSheet } from "react-native";
-import { List } from 'react-native-paper';
+import { Image, StyleSheet } from "react-native";
+import { List, TouchableRipple } from 'react-native-paper';
 import { ICONS_CAR } from "../constantsCars";
 
 //To optimize cars list performance
@@ -24,12 +24,12 @@ export default class MyListItem extends React.PureComponent {
   render() {
     let iconCar = this.getIconCars(this.props.icon);
     return (
-      <TouchableOpacity>
+      <TouchableRipple>
         <List.Item button onPress={this._onPress}
           title={this.props.title}
           left={props => <Image source={iconCar} style={styles.images} />}
         />
-      </TouchableOpacity>
+      </TouchableRipple>
     );
   }
 }

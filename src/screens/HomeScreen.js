@@ -45,8 +45,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Button color="green"
-          onPress={this.fetchCarAndNavigate}>
+        <Button color="green" mode="contained" onPress={this.fetchCarAndNavigate}>
             View Car
         </Button>
       </View>
