@@ -22,7 +22,6 @@
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
     "@react-navigation/native": "^3.6.2",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "expo": "^34.0.0",
     "mobx": "^5.0.0",
     "mobx-react": "^5.4.4",
@@ -37,9 +36,11 @@
     "react-navigation-stack": "1.5.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.9.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-expo": "^6.0.0",
     "eslint": "^6.3.0",
     "eslint-config-universe": "^1.0.7",
