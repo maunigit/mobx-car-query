@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 
 @inject('store')
 @observer
-export default class ModelsScreen extends React.Component {
+export default class Models extends React.Component {
   //Screen navigation
   static navigationOptions = {
     title: 'Models',

@@ -5,7 +5,7 @@ import { Button } from 'react-native-paper';
 
 @inject('store')
 @observer
-export default class HomeScreen extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
   }

@@ -5,9 +5,9 @@ import { createStackNavigator } from "react-navigation-stack";
 import { Provider } from "mobx-react";
 import { DefaultTheme, DarkTheme, Provider as PaperProvider } from 'react-native-paper';
 import Store from "./src/stores/Store";
-import HomeScreen from "./src/screens/HomeScreen";
-import MakesScreen from "./src/screens/MakesScreen";
-import ModelsScreen from "./src/screens/ModelsScreen";
+import Home from "./src/screens/Home";
+import Makes from "./src/screens/Makes";
+import Models from "./src/screens/Models";
 
 //Theme of the app
 const theme = {
@@ -34,9 +34,9 @@ const theme = {
 //Navigation roots
 const RootStack = createStackNavigator(
   {
-    Home: HomeScreen,
-    Makes: MakesScreen,
-    Models: ModelsScreen
+    Home: Home,
+    Makes: Makes,
+    Models: Models
   },
   {
     initialRouteName: "Home",

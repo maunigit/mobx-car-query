@@ -6,7 +6,7 @@ import MyListItem from '../components/MyListItem';
 
 @inject('store')
 @observer
-export default class MakesScreen extends React.Component {
+export default class Makes extends React.Component {
   //Screen navigation
   static navigationOptions = {
     title: 'Makes',
