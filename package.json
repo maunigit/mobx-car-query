@@ -5,6 +5,19 @@
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "clean:node": "rimraf node_modules",
+    "clean2:node": "remove-node-modules",
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "lint": "node ./node_modules/eslint/bin/eslint.js --ext .js src/screens/",
+    "lint-js": "eslint --ext .jsx --ext .js src/",
+    "lint-js:fix": "npm run lint-js -- --fix",
+    "prettier": "prettier \"{src}/**/*.js\"",
+    "prettier:fix": "npm run prettier  -- --write"
+  },
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
     "@react-navigation/native": "^3.6.2",
@@ -23,6 +36,11 @@
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
     "svg-to-png": "^4.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "eslint": "^6.3.0",
+    "eslint-config-universe": "^1.0.7",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "remove-node-modules": "^1.7.6"
   }
 }
