@@ -2,6 +2,7 @@ module.exports = function(api) {
   api.cache(true);
   return {
     plugins: [
+      '@babel/transform-flow-strip-types',
       ["@babel/plugin-proposal-decorators", { "legacy": true }],
       ["@babel/plugin-proposal-class-properties", { "loose": true }]
     ],
