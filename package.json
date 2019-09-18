@@ -16,7 +16,8 @@
     "lint-js:fix": "npm run lint-js -- --fix",
     "prettier": "prettier \"src/**/*.js\"",
     "prettier:fix": "npm run prettier  -- --write",
-    "svgtopng": "node ./tools/svgtopng.js"
+    "svgtopng": "node ./tools/svgtopng.js",
+    "test": "jest"
   },
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
@@ -41,6 +42,7 @@
     "jest-expo": "^34.0.1",
     "path": "^0.12.7",
     "prettier": "^1.18.2",
+    "react-test-renderer": "^16.9.0",
     "remove-node-modules": "^1.7.6",
     "rimraf": "^3.0.0",
     "svg-to-png": "^4.0.0"
