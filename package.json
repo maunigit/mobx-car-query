@@ -6,8 +6,7 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "clean:node": "rimraf node_modules",
-    "clean2:node": "remove-node-modules",
+    "clean:node": "rimraf node_modules",    
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
