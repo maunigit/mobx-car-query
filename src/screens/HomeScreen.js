@@ -1,9 +1,9 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import { observer, inject } from "mobx-react";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { observer, inject } from 'mobx-react';
 import { Button } from 'react-native-paper';
 
-@inject("store")
+@inject('store')
 @observer
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class HomeScreen extends React.Component {
 
   //Screen navigation
   static navigationOptions = {
-    title: "Home"
+    title: 'Home',
   };
 
   //Asynch fetch of cars
@@ -31,14 +31,14 @@ export default class HomeScreen extends React.Component {
 
   //Define the url to fetch
   setFetchCar = async () => {
-    var urlCarMakes = "https://www.carqueryapi.com/api/0.3/?&cmd=getMakes";
+    var urlCarMakes = 'https://www.carqueryapi.com/api/0.3/?&cmd=getMakes';
     await this.fetchAsyncCar(urlCarMakes);
   };
 
   //Fetch car and navigate
   fetchCarAndNavigate = async () => {
     await this.setFetchCar();
-    this.props.navigation.navigate("Makes");
+    this.props.navigation.navigate('Makes');
   };
 
   //Show button to view car makes
@@ -46,7 +46,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Button color="green" mode="contained" onPress={this.fetchCarAndNavigate}>
-            View Car
+          View Car
         </Button>
       </View>
     );
@@ -55,5 +55,5 @@ export default class HomeScreen extends React.Component {
 
 //Style
 const styles = StyleSheet.create({
-  mainContainer: { flex: 1, alignItems: "center", justifyContent: "center" }
+  mainContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 });

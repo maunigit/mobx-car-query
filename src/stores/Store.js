@@ -1,9 +1,9 @@
-import { observable } from "mobx";
+import { observable } from 'mobx';
 
 //Place to store information
 class Store {
   @observable data = [];
-  @observable make = "";
+  @observable make = '';
 }
 
 export default new Store();
