@@ -6,7 +6,7 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "clean:node": "rimraf node_modules",    
+    "clean:node": "rimraf node_modules",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -36,12 +36,13 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0",
-    "svg-to-png": "^4.0.0",
-    "path": "^0.12.7",
     "eslint": "^6.3.0",
     "eslint-config-universe": "^1.0.7",
+    "jest-expo": "^34.0.1",
+    "path": "^0.12.7",
     "prettier": "^1.18.2",
+    "remove-node-modules": "^1.7.6",
     "rimraf": "^3.0.0",
-    "remove-node-modules": "^1.7.6"
+    "svg-to-png": "^4.0.0"
   }
 }
