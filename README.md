@@ -1,3 +1,3 @@
-# CarQuery app
+# Carquery
 
-Use for keep result of CarQuery in more screens
+Search cars
