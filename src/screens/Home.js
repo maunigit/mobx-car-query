@@ -6,10 +6,6 @@ import { Button } from 'react-native-paper';
 @inject('store')
 @observer
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   //Screen navigation
   static navigationOptions = {
     title: 'Home',
