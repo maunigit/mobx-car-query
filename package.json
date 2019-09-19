@@ -14,7 +14,7 @@
     "prettier": "prettier \"{src,__tests__}/**/*.js\"",
     "prettier:fix": "npm run prettier  -- --write",
     "svgtopng": "node ./tools/svgtopng.js",
-    "test": "jest"
+    "test": "jest --updateSnapshot"
   },
   "dependencies": {
     "@react-navigation/core": "^3.5.0",
