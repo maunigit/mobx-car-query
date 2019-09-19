@@ -8,7 +8,6 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "lint": "node ./node_modules/eslint/bin/eslint.js --ext .js src/screens/",
     "lint-js": "eslint --ext .jsx --ext .js src/ __tests__/",
     "lint-js:fix": "npm run lint-js -- --fix",
     "prettier": "prettier \"{src,__tests__}/**/*.js\"",
