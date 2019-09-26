@@ -4,6 +4,8 @@ import { observable } from 'mobx';
 class Store {
   @observable data = [];
   @observable make = '';
+  @observable maxYear = '';
+  @observable minYear = '';
 }
 
 export default new Store();
