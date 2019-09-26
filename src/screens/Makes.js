@@ -12,11 +12,39 @@ export default class Makes extends React.Component {
     title: 'Makes',
   };
 
+  //Asynch fetch of cars
+  fetchAsyncYear = async url => {
+    try {
+      let response = await fetch(url);
+      let data = await response.json();
+      //Store Years
+      this.props.store.maxYear = data.Years.max_year;
+      this.props.store.minYear = data.Years.min_year;
+      //Print Years object
+      console.log('MAX YEAR: ' + JSON.stringify(data.Years.max_year));
+      console.log('MIN YEAR: ' + JSON.stringify(data.Years.min_year));
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  //Define the url to fetch
+  setFetchYear = async () => {
+    var urlCarYear = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
+    await this.fetchAsyncYear(urlCarYear);
+  };
+
+  //Fetch car and navigate
+  fetchYearAndNavigate = async () => {
+    await this.setFetchYear();
+    this.props.navigation.navigate('Years');
+  };
+
   //Store make of the car
   selectedMake = make => {
     console.log('SelectedMake...');
     this.props.store.make = make;
-    this.props.navigation.navigate('Models');
+    this.fetchYearAndNavigate();    
   };
 
   keyExtractor = (item, index) => index.toString();
@@ -50,7 +78,7 @@ export default class Makes extends React.Component {
 
   //Show cars list
   render() {
-    console.log('RENDERING...');
+    console.log('MAKES RENDERING...');
     return <View style={styles.mainContainer}>{this.showCarData()}</View>;
   }
 }

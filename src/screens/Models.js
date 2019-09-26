@@ -10,23 +10,15 @@ export default class Models extends React.Component {
     title: 'Models',
   };
 
-  //Models of the car
-  showDetails = () => {
-    return <View style={styles.mainContainer} />;
-  };
-
-  //Show car models
+  //Show car models of the selected make
   render() {
-    return <View style={styles.mainContainer}>{this.showDetails()}</View>;
+    return (
+      <View style={styles.mainContainer}></View>
+    );
   }
 }
 
 //Style
 const styles = StyleSheet.create({
-  mainContainer: { flex: 1, justifyContent: 'center' },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    textAlign: 'center',
-  },
+  mainContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 });
