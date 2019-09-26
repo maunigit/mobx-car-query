@@ -27,7 +27,7 @@ export default class Home extends React.Component {
 
   //Define the url to fetch
   setFetchCar = async () => {
-    var urlCarMakes = 'https://www.carqueryapi.com/api/0.3/?&cmd=getMakes';
+    var urlCarMakes = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
     await this.fetchAsyncCar(urlCarMakes);
   };
 
