@@ -18,13 +18,13 @@ export default class Years extends React.Component {
   };
   
   //Render every item of the list
-  renderItem = (item) => {
+  renderItem = ({item}) => {
     return (
       <TouchableRipple>
         <List.Item
           button
           onPress={this._onPressItem}
-          title={item}
+          title={item.year}
         />
       </TouchableRipple>
     );
@@ -33,14 +33,16 @@ export default class Years extends React.Component {
   getYears = () => {
     let max=parseInt(this.props.store.maxYear);
     let min=parseInt(this.props.store.minYear);
-    let years=[2019,2018,2017];
+    let years=[
+      { year: '2011'},
+      { year: '2010'},];
     //TODO
     return (years);
   }
 
   //List of the years
   showYears = () => {
-    let years = [2019,2018,2017];
+    let years = this.getYears();
     if (this.props.store.maxYear) {
       return (
         <FlatList
