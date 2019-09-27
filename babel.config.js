@@ -1,3 +1,5 @@
+//For a detailed explanation see: https://github.com/facebook/react-native/issues/20588
+
 module.exports = function(api) {
   api.cache(true);
   return {
