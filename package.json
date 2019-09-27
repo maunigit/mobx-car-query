@@ -47,7 +47,6 @@
     "path": "^0.12.7",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.9.0",
-    "remove-node-modules": "^1.7.6",
     "rimraf": "^3.0.0",
     "svg-to-png": "^4.0.0"
   }
