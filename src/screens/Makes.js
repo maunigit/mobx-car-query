@@ -44,7 +44,7 @@ export default class Makes extends React.Component {
   selectedMake = make => {
     console.log('SelectedMake...');
     this.props.store.make = make;
-    this.fetchYearAndNavigate();    
+    this.fetchYearAndNavigate();
   };
 
   keyExtractor = (item, index) => index.toString();

@@ -12,9 +12,7 @@ export default class Models extends React.Component {
 
   //Show car models of the selected make
   render() {
-    return (
-      <View style={styles.mainContainer}></View>
-    );
+    return <View style={styles.mainContainer}></View>;
   }
 }
 

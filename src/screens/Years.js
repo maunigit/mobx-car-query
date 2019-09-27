@@ -16,40 +16,32 @@ export default class Years extends React.Component {
   _onPressItem = () => {
     this.props.navigation.navigate('Models');
   };
-  
+
   //Render every item of the list
-  renderItem = ({item}) => {
+  renderItem = ({ item }) => {
     return (
       <TouchableRipple>
-        <List.Item
-          button
-          onPress={this._onPressItem}
-          title={item.year}
-        />
+        <List.Item button onPress={this._onPressItem} title={item.year} />
       </TouchableRipple>
     );
   };
 
   getYears = () => {
-    let max=parseInt(this.props.store.maxYear);
-    let min=parseInt(this.props.store.minYear);
-    let years=[];
-    for(max; max>=min;max--){      
-      years.push({year: max});
+    let max = parseInt(this.props.store.maxYear);
+    let min = parseInt(this.props.store.minYear);
+    let years = [];
+    for (max; max >= min; max--) {
+      years.push({ year: max });
     }
-    return (years);
-  }
+    return years;
+  };
 
   //List of the years
   showYears = () => {
     let years = this.getYears();
     if (this.props.store.maxYear) {
       return (
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={years}
-          renderItem={this.renderItem}
-        />
+        <FlatList keyExtractor={this.keyExtractor} data={years} renderItem={this.renderItem} />
       );
     } else {
       return null;
