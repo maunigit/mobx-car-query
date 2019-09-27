@@ -33,10 +33,10 @@ export default class Years extends React.Component {
   getYears = () => {
     let max=parseInt(this.props.store.maxYear);
     let min=parseInt(this.props.store.minYear);
-    let years=[
-      { year: '2011'},
-      { year: '2010'},];
-    //TODO
+    let years=[];
+    for(max; max>=min;max--){      
+      years.push({year: max});
+    }
     return (years);
   }
 
