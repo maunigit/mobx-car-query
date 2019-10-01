@@ -6,6 +6,7 @@ class Store {
   @observable make = '';
   @observable maxYear = '';
   @observable minYear = '';
+  @observable year = -1;
 }
 
 export default new Store();

@@ -10,12 +10,32 @@ export default class Years extends React.Component {
   static navigationOptions = {
     title: 'Years',
   };
+  static URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 
-  keyExtractor = (item, index) => index.toString();
+  async componentDidMount() {
+    console.log('YearsScreen - componentDidMount');
+    await this.getBoundaryYears();
+  }
 
-  _onPressItem = () => {
+  //Fetch boundary years
+  getBoundaryYears = async () => {
+    try {
+      let response = await fetch(Years.URL_YEARS);
+      let data = await response.json();
+      //Store years
+      this.props.store.maxYear = data.Years.max_year;
+      this.props.store.minYear = data.Years.min_year;
+    } catch (error) {
+      alert(error);
+    }
+  };
+  
+  //Press on a year
+  _onPressItem = (year) => {    
     this.props.navigation.navigate('Models');
   };
+
+  keyExtractor = (item, index) => index.toString();
 
   //Render every item of the list
   renderItem = ({ item }) => {
@@ -26,7 +46,8 @@ export default class Years extends React.Component {
     );
   };
 
-  getYears = () => {
+  //Generate years between two boundary
+  createYears = () => {
     let max = parseInt(this.props.store.maxYear);
     let min = parseInt(this.props.store.minYear);
     let years = [];
@@ -38,19 +59,17 @@ export default class Years extends React.Component {
 
   //List of the years
   showYears = () => {
-    let years = this.getYears();
     if (this.props.store.maxYear) {
       return (
-        <FlatList keyExtractor={this.keyExtractor} data={years} renderItem={this.renderItem} />
+        <FlatList keyExtractor={this.keyExtractor} data={this.createYears()} renderItem={this.renderItem} />
       );
     } else {
       return null;
     }
   };
 
-  //Show car Years
+  //Show years
   render() {
-    console.log('YEARS RENDERING...');
     return <View style={styles.mainContainer}>{this.showYears()}</View>;
   }
 }

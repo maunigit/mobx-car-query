@@ -11,17 +11,17 @@ export default class Makes extends React.Component {
   static navigationOptions = {
     title: 'Makes',
   };
-  static URL_CAR_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
+  static URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
   async componentDidMount() {
     console.log('MakesScreen - componentDidMount');
     await this.getMakes();
   }
 
-  //Asynch fetch of cars
+  //Fetch Makes
   getMakes = async () => {
     try {
-      let response = await fetch(Makes.URL_CAR_MAKES);
+      let response = await fetch(Makes.URL_MAKES);
       let data = await response.json();
       //Store Makes
       this.props.store.data = data.Makes;
@@ -31,49 +31,16 @@ export default class Makes extends React.Component {
       alert(error);
     }
   };
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-  //Asynch fetch of cars
-  fetchAsyncYear = async url => {
-    try {
-      let response = await fetch(url);
-      let data = await response.json();
-      //Store Years
-      this.props.store.maxYear = data.Years.max_year;
-      this.props.store.minYear = data.Years.min_year;
-      //Print Years object
-      console.log('MAX YEAR: ' + JSON.stringify(data.Years.max_year));
-      console.log('MIN YEAR: ' + JSON.stringify(data.Years.min_year));
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  //Define the url to fetch
-  setFetchYear = async () => {
-    var urlCarYear = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
-    await this.fetchAsyncYear(urlCarYear);
-  };
-
-  //Fetch car and navigate
-  fetchYearAndNavigate = async () => {
-    await this.setFetchYear();
+  
+  //Press on a Make
+  _onPressItem = make => {
+    console.log('Make selected is: '+ make);
+    //Store Make
+    this.props.store.make = make;
     this.props.navigation.navigate('Years');
   };
 
-  //Store make of the car
-  selectedMake = make => {
-    console.log('SelectedMake...');
-    this.props.store.make = make;
-    this.fetchYearAndNavigate();
-  };
-
   keyExtractor = (item, index) => index.toString();
-
-  //Press on car make
-  _onPressItem = id => {
-    this.selectedMake(id);
-  };
 
   //Render every item of the list
   renderItem = ({ item }) => {
@@ -82,8 +49,8 @@ export default class Makes extends React.Component {
     );
   };
 
-  //List of the cars
-  showCarData = () => {
+  //List of Makes
+  showMakes = () => {
     if (this.props.store.data) {
       return (
         <FlatList
@@ -97,10 +64,9 @@ export default class Makes extends React.Component {
     }
   };
 
-  //Show cars list
+  //Show Makes
   render() {
-    console.log('MAKES RENDERING...');
-    return <View style={styles.mainContainer}>{this.showCarData()}</View>;
+    return <View style={styles.mainContainer}>{this.showMakes()}</View>;
   }
 }
 

@@ -11,7 +11,7 @@ export default class Home extends React.Component {
     title: 'Home',
   };
   
-  //Show button to view car makes
+  //Show button to view Makes
   render() {
     return (
       <View style={styles.mainContainer}>
