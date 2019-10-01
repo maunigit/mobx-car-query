@@ -31,7 +31,7 @@ export default class Years extends React.Component {
   };
   
   //Press on a year
-  _onPressItem = (year) => {    
+  _onPressItem = () => {
     this.props.navigation.navigate('Models');
   };
 
@@ -59,9 +59,10 @@ export default class Years extends React.Component {
 
   //List of the years
   showYears = () => {
+    let years = this.createYears();
     if (this.props.store.maxYear) {
       return (
-        <FlatList keyExtractor={this.keyExtractor} data={this.createYears()} renderItem={this.renderItem} />
+        <FlatList keyExtractor={this.keyExtractor} data={years} renderItem={this.renderItem} />
       );
     } else {
       return null;

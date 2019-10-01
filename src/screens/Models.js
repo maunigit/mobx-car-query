@@ -10,7 +10,7 @@ export default class Models extends React.Component {
     title: 'Models',
   };
 
-  //Show car models of the selected make
+  //Show models
   render() {
     return <View style={styles.mainContainer}></View>;
   }

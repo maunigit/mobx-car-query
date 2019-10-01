@@ -1,7 +1,7 @@
 var pathIconsCar = '../assets/images/png-cars/';
 
-export const ICONS_CAR = {
-  //Cars icon
+export const ICONS_MAKES = {
+  //Makes icon
   abarth: require(pathIconsCar + 'abarth.png'),
   'alfa-romeo': require(pathIconsCar + 'alfa-romeo.png'),
   'aston-martin': require(pathIconsCar + 'aston-martin.png'),
@@ -47,6 +47,6 @@ export const ICONS_CAR = {
   toyota: require(pathIconsCar + 'toyota.png'),
   volkswagen: require(pathIconsCar + 'volkswagen.png'),
   volvo: require(pathIconsCar + 'volvo.png'),
-  //Cars icon that we don't have the icon
+  //Make icon that we don't have the icon
   circle_grey: require(pathIconsCar + 'circle_grey.png'),
 };
