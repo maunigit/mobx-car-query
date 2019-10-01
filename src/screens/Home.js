@@ -10,38 +10,12 @@ export default class Home extends React.Component {
   static navigationOptions = {
     title: 'Home',
   };
-
-  //Asynch fetch of cars
-  fetchAsyncCar = async url => {
-    try {
-      let response = await fetch(url);
-      let data = await response.json();
-      //Store Makes
-      this.props.store.data = data.Makes;
-      //Print Makes object
-      console.log(JSON.stringify(data.Makes));
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  //Define the url to fetch
-  setFetchCar = async () => {
-    var urlCarMakes = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
-    await this.fetchAsyncCar(urlCarMakes);
-  };
-
-  //Fetch car and navigate
-  fetchCarAndNavigate = async () => {
-    await this.setFetchCar();
-    this.props.navigation.navigate('Makes');
-  };
-
+  
   //Show button to view car makes
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Button color="green" mode="contained" onPress={this.fetchCarAndNavigate}>
+        <Button color="green" mode="contained" onPress={() => this.props.navigation.navigate('Makes')}>
           View Car
         </Button>
       </View>

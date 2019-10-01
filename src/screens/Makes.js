@@ -11,7 +11,28 @@ export default class Makes extends React.Component {
   static navigationOptions = {
     title: 'Makes',
   };
+  static URL_CAR_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
+  async componentDidMount() {
+    console.log('MakesScreen - componentDidMount');
+    await this.getMakes();
+  }
+
+  //Asynch fetch of cars
+  getMakes = async () => {
+    try {
+      let response = await fetch(Makes.URL_CAR_MAKES);
+      let data = await response.json();
+      //Store Makes
+      this.props.store.data = data.Makes;
+      //Print Makes object
+      console.log(JSON.stringify(data.Makes));
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
   //Asynch fetch of cars
   fetchAsyncYear = async url => {
     try {
