@@ -4,9 +4,9 @@ import renderer from 'react-test-renderer';
 import App from '../App';
 
 //Unit test
-it('App renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
-  expect(rendered).toBeTruthy();
+it('App renders correctly', () => {
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toBeTruthy();
 });
 
 //Snapshot test
