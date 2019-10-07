@@ -31,8 +31,9 @@ export default class Years extends React.Component {
   };
   
   //Press on a year
-  _onPressItem = () => {
-    console.log('Year selected is: ');
+  goToModels = (year) => {
+    console.log('Year selected is: '+ year);
+    this.props.store.year = year;
     this.props.navigation.navigate('Models');
   };
 
@@ -42,7 +43,7 @@ export default class Years extends React.Component {
   renderItem = ({ item }) => {
     return (
       <TouchableRipple>
-        <List.Item button onPress={this._onPressItem} title={item.year} />
+        <List.Item button onPress={() => this.goToModels(item.year)} title={item.year} />
       </TouchableRipple>
     );
   };
