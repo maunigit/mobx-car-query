@@ -58,7 +58,10 @@ export default class Models extends React.Component {
         />
       );
     } else {
-      return (<Text>Sorry, no model is present in this year. Please choose another year.</Text>);
+      return (<View style={styles.paragraph}>
+      <Text>Sorry, no model is present in this year.</Text>
+      <Text>Please choose another year.</Text>
+      </View>);
     }
   };
 
@@ -71,4 +74,9 @@ export default class Models extends React.Component {
 //Style
 const styles = StyleSheet.create({
   mainContainer: { flex: 1, justifyContent: 'center' },
+  paragraph: {
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
