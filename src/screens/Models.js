@@ -11,9 +11,6 @@ export default class Models extends React.Component {
     title: 'Models',
   };
 
-  //TODO set make e year
-  static URL_MODELS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=ford&year=2005';
-
   async componentDidMount() {
     console.log('ModelsScreen - componentDidMount');
     await this.getModels();
@@ -22,7 +19,10 @@ export default class Models extends React.Component {
   //Fetch models
   getModels = async () => {
     try {
-      let response = await fetch(Models.URL_MODELS);
+      let URL_MODELS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=' +
+        this.props.store.make + '&year=' + this.props.store.year;
+      console.log('URL_MODELS è: ' + URL_MODELS);
+      let response = await fetch(URL_MODELS);
       let data = await response.json();
       //Store models
       this.props.store.models = data.Models;
@@ -39,7 +39,7 @@ export default class Models extends React.Component {
   renderItem = ({ item }) => {
     return (
       <TouchableRipple>
-        <List.Item button onPress={this._onPressItem} title={item.model_name} />
+        <List.Item button title={item.model_name} />
       </TouchableRipple>
     );
   };
