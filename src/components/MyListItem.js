@@ -7,9 +7,9 @@ import { ICONS_MAKES } from '../constantsCars';
 export default class MyListItem extends React.PureComponent {
   //Makes png
   getIconMakes = iconName => {
-    let icon = ICONS_MAKES[iconName];
+    let icon_png = ICONS_MAKES[iconName];
     //Default Make icon if we haven't the corresponding png
-    if (!icon) {
+    if (!icon_png) {
       iconName = 'circle_grey';
     }
     return ICONS_MAKES[iconName];

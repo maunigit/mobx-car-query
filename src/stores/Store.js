@@ -2,11 +2,12 @@ import { observable } from 'mobx';
 
 //Place to store information
 class Store {
-  @observable data = [];
+  @observable makes = [];
   @observable make = '';
   @observable maxYear = '';
   @observable minYear = '';
-  @observable year = '';
+  @observable year = 0;
+  @observable models = [];
 }
 
 export default new Store();

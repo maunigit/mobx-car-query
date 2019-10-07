@@ -32,6 +32,7 @@ export default class Years extends React.Component {
   
   //Press on a year
   _onPressItem = () => {
+    console.log('Year selected is: ');
     this.props.navigation.navigate('Models');
   };
 

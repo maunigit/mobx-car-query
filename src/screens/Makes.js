@@ -24,7 +24,7 @@ export default class Makes extends React.Component {
       let response = await fetch(Makes.URL_MAKES);
       let data = await response.json();
       //Store Makes
-      this.props.store.data = data.Makes;
+      this.props.store.makes = data.Makes;
       //Print Makes object
       console.log(JSON.stringify(data.Makes));
     } catch (error) {
@@ -51,11 +51,11 @@ export default class Makes extends React.Component {
 
   //List of Makes
   showMakes = () => {
-    if (this.props.store.data) {
+    if (this.props.store.makes) {
       return (
         <FlatList
           keyExtractor={this.keyExtractor}
-          data={this.props.store.data}
+          data={this.props.store.makes}
           renderItem={this.renderItem}
         />
       );
