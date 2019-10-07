@@ -3,6 +3,8 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { List, TouchableRipple } from 'react-native-paper';
 
+const URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
+
 @inject('store')
 @observer
 export default class Years extends React.Component {
@@ -10,7 +12,6 @@ export default class Years extends React.Component {
   static navigationOptions = {
     title: 'Years',
   };
-  static URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 
   async componentDidMount() {
     console.log('YearsScreen - componentDidMount');
@@ -20,7 +21,7 @@ export default class Years extends React.Component {
   //Fetch boundary years
   getBoundaryYears = async () => {
     try {
-      let response = await fetch(Years.URL_YEARS);
+      let response = await fetch(URL_YEARS);
       let data = await response.json();
       //Store years
       this.props.store.maxYear = data.Years.max_year;

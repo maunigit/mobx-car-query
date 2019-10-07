@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-
 import MyListItem from '../components/MyListItem';
+
+const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
 @inject('store')
 @observer
@@ -11,7 +12,6 @@ export default class Makes extends React.Component {
   static navigationOptions = {
     title: 'Makes',
   };
-  static URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
   async componentDidMount() {
     console.log('MakesScreen - componentDidMount');
@@ -21,7 +21,7 @@ export default class Makes extends React.Component {
   //Fetch Makes
   getMakes = async () => {
     try {
-      let response = await fetch(Makes.URL_MAKES);
+      let response = await fetch(URL_MAKES);
       let data = await response.json();
       //Store Makes
       this.props.store.makes = data.Makes;
