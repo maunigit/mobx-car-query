@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import { List, TouchableRipple } from 'react-native-paper';
+import { List, TouchableRipple, Text } from 'react-native-paper';
 
 @inject('store')
 @observer
@@ -19,8 +19,11 @@ export default class Models extends React.Component {
   //Fetch models
   getModels = async () => {
     try {
-      let URL_MODELS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=' +
-        this.props.store.make + '&year=' + this.props.store.year;
+      let URL_MODELS =
+        'https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=' +
+        this.props.store.make +
+        '&year=' +
+        this.props.store.year;
       console.log('URL_MODELS è: ' + URL_MODELS);
       let response = await fetch(URL_MODELS);
       let data = await response.json();
@@ -55,7 +58,11 @@ export default class Models extends React.Component {
         />
       );
     } else {
-      return null;
+      return (
+        <View style={styles.mainContainer}>
+          <Text>Sorry, no model is present in this year. Please choose another year.</Text>
+        </View>
+      );
     }
   };
 

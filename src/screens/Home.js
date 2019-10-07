@@ -10,12 +10,15 @@ export default class Home extends React.Component {
   static navigationOptions = {
     title: 'Home',
   };
-  
+
   //Show button to view Makes
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Button color="green" mode="contained" onPress={() => this.props.navigation.navigate('Makes')}>
+        <Button
+          color="green"
+          mode="contained"
+          onPress={() => this.props.navigation.navigate('Makes')}>
           View Car
         </Button>
       </View>

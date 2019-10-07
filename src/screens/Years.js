@@ -30,10 +30,10 @@ export default class Years extends React.Component {
       alert(error);
     }
   };
-  
+
   //Press on a year
-  goToModels = (year) => {
-    console.log('Year selected is: '+ year);
+  goToModels = year => {
+    console.log('Year selected is: ' + year);
     this.props.store.year = year;
     this.props.navigation.navigate('Models');
   };

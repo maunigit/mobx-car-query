@@ -31,10 +31,10 @@ export default class Makes extends React.Component {
       alert(error);
     }
   };
-  
+
   //Press on a Make
   _onPressItem = make => {
-    console.log('Make selected is: '+ make);
+    console.log('Make selected is: ' + make);
     //Store Make
     this.props.store.make = make;
     this.props.navigation.navigate('Years');
