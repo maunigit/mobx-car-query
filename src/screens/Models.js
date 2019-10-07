@@ -49,7 +49,7 @@ export default class Models extends React.Component {
 
   //List of models
   showModels = () => {
-    if (this.props.store.models) {
+    if (!this.props.store.models.length == 0) {
       return (
         <FlatList
           keyExtractor={this.keyExtractor}
@@ -58,11 +58,7 @@ export default class Models extends React.Component {
         />
       );
     } else {
-      return (
-        <View style={styles.mainContainer}>
-          <Text>Sorry, no model is present in this year. Please choose another year.</Text>
-        </View>
-      );
+      return (<Text>Sorry, no model is present in this year. Please choose another year.</Text>);
     }
   };
 
