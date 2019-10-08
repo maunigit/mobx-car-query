@@ -4,6 +4,7 @@ import Home from '../screens/Home';
 import Makes from '../screens/Makes';
 import Years from '../screens/Years';
 import Models from '../screens/Models';
+import Details from '../screens/Details';
 
 //Navigation roots
 const AppNavigator = createStackNavigator(
@@ -12,6 +13,7 @@ const AppNavigator = createStackNavigator(
     Makes,
     Years,
     Models,
+    Details,
   },
   {
     initialRouteName: 'Home',

@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import { List, TouchableRipple, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
+import ListItemYearsModels from '../components/ListItemYearsModels';
 
 @inject('store')
 @observer
@@ -29,22 +30,24 @@ export default class Models extends React.Component {
       let data = await response.json();
       //Store models
       this.props.store.models = data.Models;
-      //Print models object
       console.log(JSON.stringify(data.Models));
     } catch (error) {
       alert(error);
     }
   };
 
+  //Press on a model
+  goToDetails = model => {
+    console.log('Model selected is: ' + model);
+    this.props.store.model = model;
+    this.props.navigation.navigate('Details');
+  };
+
   keyExtractor = (item, index) => index.toString();
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (
-      <TouchableRipple>
-        <List.Item button title={item.model_name} />
-      </TouchableRipple>
-    );
+    return (<ListItemYearsModels onPressItem={this.goToDetails} title={item.model_name}/>);
   };
 
   //List of models
