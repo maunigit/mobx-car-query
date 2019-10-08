@@ -1,19 +1,19 @@
 import { createAppContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
 import Home from '../screens/Home';
-import Makes from '../screens/Makes';
-import Years from '../screens/Years';
-import Models from '../screens/Models';
-import Details from '../screens/Details';
+import Make from '../screens/Make';
+import Year from '../screens/Year';
+import Model from '../screens/Model';
+import Detail from '../screens/Detail';
 
 //Navigation roots
 const AppNavigator = createStackNavigator(
   {
     Home,
-    Makes,
-    Years,
-    Models,
-    Details,
+    Make,
+    Year,
+    Model,
+    Detail,
   },
   {
     initialRouteName: 'Home',

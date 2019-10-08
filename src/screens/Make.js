@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import ListItemMakes from '../components/ListItemMakes';
+import ListItemIcon from '../components/ListItemIcon';
 
 const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
 @inject('store')
 @observer
-export default class Makes extends React.Component {
+export default class Make extends React.Component {
   //Screen navigation
   static navigationOptions = {
-    title: 'Makes',
+    title: 'Make',
   };
 
   async componentDidMount() {
-    console.log('MakesScreen - componentDidMount');
+    console.log('MakeScreen - componentDidMount');
     await this.getMakes();
   }
 
@@ -44,7 +44,7 @@ export default class Makes extends React.Component {
   //Render every item of the list
   renderItem = ({ item }) => {
     return (
-      <ListItemMakes onPressItem={this.goToYears} title={item.make_display} icon={item.make_id} />
+      <ListItemIcon onPressItem={this.goToYears} title={item.make_display} icon={item.make_id} />
     );
   };
 

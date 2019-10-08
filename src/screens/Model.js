@@ -2,18 +2,18 @@ import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { Text } from 'react-native-paper';
-import ListItemYearsModels from '../components/ListItemYearsModels';
+import ListItemNoIcon from '../components/ListItemNoIcon';
 
 @inject('store')
 @observer
-export default class Models extends React.Component {
+export default class Model extends React.Component {
   //Screen navigation
   static navigationOptions = {
-    title: 'Models',
+    title: 'Model',
   };
 
   async componentDidMount() {
-    console.log('ModelsScreen - componentDidMount');
+    console.log('ModelScreen - componentDidMount');
     await this.getModels();
   }
 
@@ -47,7 +47,7 @@ export default class Models extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemYearsModels onPressItem={this.goToDetails} title={item.model_name}/>);
+    return (<ListItemNoIcon onPressItem={this.goToDetails} title={item.model_name}/>);
   };
 
   //List of models

@@ -4,7 +4,7 @@ import { List, TouchableRipple } from 'react-native-paper';
 import { ICONS_MAKES } from '../constantsCars';
 
 //Optimize list performance
-export default class ListItemMakes extends React.PureComponent {
+export default class ListItemIcon extends React.PureComponent {
   //Makes png
   getIconMakes = iconName => {
     let icon_png = ICONS_MAKES[iconName];
