@@ -1,19 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { DataTable } from 'react-native-paper';
 
 @inject('store')
 @observer
 export default class Detail extends React.Component {
+
+  state = {isLoading: true}
+
   //Screen navigation
   static navigationOptions = {
     title: 'Detail',
   };
 
-  async componentDidMount() {
+    componentDidMount() {
     console.log('DetailScreen - componentDidMount');
-    await this.getDetails();
+      this.getDetails();
   }
 
   //Fetch details
@@ -25,8 +28,13 @@ export default class Detail extends React.Component {
       let response = await fetch(URL_DETAILS);
       let data = await response.json();
       //Store details
-      this.props.store.details = data;
-      console.log(JSON.stringify(data));
+      let obj = null;
+      if(data.length>0){
+        obj = data[0];
+      }
+      this.props.store.details = obj;
+      console.log('data: ' + JSON.stringify(data));
+      this.setState({isLoading: false});
     } catch (error) {
       alert(error);
     }
@@ -35,13 +43,34 @@ export default class Detail extends React.Component {
   //List of details
   showDetails = () => {
     if (this.props.store.details) {
+
+let rows = [];
+var keys = Object.keys(this.props.store.details);
+for(var i=0; i<keys.length; i++){
+  console.log(key, this.props.store.details[key]);
+  var key = keys[i];
+  var value = this.props.store.details[key];
+if(true){  // TODO: complete here...
+  let keyDesc = key; // TODO: complete here...
+        rows.push(
+  
+<DataTable.Row key={i}>
+<DataTable.Cell key={'X'+i}>{keyDesc}</DataTable.Cell>
+<DataTable.Cell key={'Y'+i} numeric>{value}</DataTable.Cell>
+</DataTable.Row>
+
+        );}
+      }
+
+
+
+
       return (
         <DataTable>
         <ScrollView>
-          <DataTable.Row>
-            <DataTable.Cell>Country of Origin:</DataTable.Cell>
-            <DataTable.Cell numeric>USA</DataTable.Cell>
-          </DataTable.Row>
+          
+     {rows}
+
         </ScrollView>
       </DataTable>
       );
@@ -52,11 +81,26 @@ export default class Detail extends React.Component {
 
   //Show details
   render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={[styles.mainContainer, styles.horizontal]}>
+          <ActivityIndicator animating={true} size="large" color="#0000ff" />
+        </View>
+      );
+    } else {
+
     return <View style={styles.mainContainer}>{this.showDetails()}</View>;
+    }
   }
 }
 
 //Style
 const styles = StyleSheet.create({
   mainContainer: { flex: 1, justifyContent: 'center' },
+ 
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
+  }
 });
