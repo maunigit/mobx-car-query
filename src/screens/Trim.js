@@ -35,8 +35,9 @@ export default class Trim extends React.Component {
 
   //Press on a trim
   goToDetail = trim => {
-    console.log('Trim selected is: ' + trim);
-    this.props.store.trim_model_id = trim;
+    console.log('Trim selected is: ' + trim.model_trim);
+    console.log('This trim has model_id: ' + trim.model_id);
+    this.props.store.trim_model_id = trim.model_id;
     this.props.navigation.navigate('Detail');
   };
 
@@ -44,7 +45,7 @@ export default class Trim extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={() => this.goToDetail(item.model_id)} title={item.model_trim}/>);
+    return (<ListItemNoIcon onPressItem={() => this.goToDetail(item)} title={item.model_trim}/>);
   };
 
   //List of trims
