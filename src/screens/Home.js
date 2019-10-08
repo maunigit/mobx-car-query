@@ -18,7 +18,7 @@ export default class Home extends React.Component {
         <Button
           color="green"
           mode="contained"
-          onPress={() => this.props.navigation.navigate('Makes')}>
+          onPress={() => this.props.navigation.navigate('Make')}>
           View Car
         </Button>
       </View>
