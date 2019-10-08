@@ -36,7 +36,7 @@ export default class Trim extends React.Component {
   //Press on a trim
   goToDetail = trim => {
     console.log('Trim selected is: ' + trim);
-    this.props.store.trim = trim;
+    this.props.store.trim_model_id = trim;
     this.props.navigation.navigate('Detail');
   };
 

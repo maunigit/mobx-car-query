@@ -10,7 +10,7 @@ class Store {
   @observable models = [];
   @observable model = '';
   @observable trims = [];
-  @observable trim = '';
+  @observable trim_model_id = '';
   @observable details = [];
 }
 
