@@ -9,6 +9,8 @@ class Store {
   @observable year = 0;
   @observable models = [];
   @observable model = '';
+  @observable trims = [];
+  @observable trim = '';
   @observable details = [];
 }
 
