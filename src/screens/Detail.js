@@ -18,7 +18,7 @@ export default class Detail extends React.Component {
   //Fetch details
   getDetails = async () => {
     try {
-      let URL_DETAILS = 'https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getModel&model=' +
+      let URL_DETAILS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getModel&model=' +
         this.props.store.trim_model_id;
       console.log('URL_DETAILS è: ' + URL_DETAILS);
       let response = await fetch(URL_DETAILS);
