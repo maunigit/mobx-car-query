@@ -4,6 +4,7 @@ import Home from '../screens/Home';
 import Make from '../screens/Make';
 import Year from '../screens/Year';
 import Model from '../screens/Model';
+import Trim from '../screens/Trim';
 import Detail from '../screens/Detail';
 
 //Navigation roots
@@ -13,6 +14,7 @@ const AppNavigator = createStackNavigator(
     Make,
     Year,
     Model,
+    Trim,
     Detail,
   },
   {

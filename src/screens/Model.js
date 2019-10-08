@@ -37,17 +37,17 @@ export default class Model extends React.Component {
   };
 
   //Press on a model
-  goToDetails = model => {
+  goToTrim = model => {
     console.log('Model_name selected is: ' + model);
     this.props.store.model = model;
-    this.props.navigation.navigate('Details');
+    this.props.navigation.navigate('Trim');
   };
 
   keyExtractor = (item, index) => index.toString();
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={this.goToDetails} title={item.model_name}/>);
+    return (<ListItemNoIcon onPressItem={this.goToTrim} title={item.model_name}/>);
   };
 
   //List of models

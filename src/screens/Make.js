@@ -32,11 +32,11 @@ export default class Make extends React.Component {
   };
 
   //Press on a Make
-  goToYears = make => {
+  goToYear = make => {
     console.log('Make_id selected is: ' + make);
     //Store Make
     this.props.store.make = make;
-    this.props.navigation.navigate('Years');
+    this.props.navigation.navigate('Year');
   };
 
   keyExtractor = (item, index) => index.toString();
@@ -44,7 +44,7 @@ export default class Make extends React.Component {
   //Render every item of the list
   renderItem = ({ item }) => {
     return (
-      <ListItemIcon onPressItem={this.goToYears} title={item.make_display} icon={item.make_id} />
+      <ListItemIcon onPressItem={this.goToYear} title={item.make_display} icon={item.make_id} />
     );
   };
 

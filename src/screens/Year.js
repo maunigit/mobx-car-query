@@ -32,17 +32,17 @@ export default class Year extends React.Component {
   };
 
   //Press on a year
-  goToModels = year => {
+  goToModel = year => {
     console.log('Year selected is: ' + year);
     this.props.store.year = year;
-    this.props.navigation.navigate('Models');
+    this.props.navigation.navigate('Model');
   };
 
   keyExtractor = (item, index) => index.toString();
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={this.goToModels} title={item.year}/>);
+    return (<ListItemNoIcon onPressItem={this.goToModel} title={item.year}/>);
   };
 
   //Generate years between two boundary
