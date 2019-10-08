@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { observer, inject } from 'mobx-react';
+import { DataTable } from 'react-native-paper';
 
 @inject('store')
 @observer
