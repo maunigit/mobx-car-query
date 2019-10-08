@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import MyListItem from '../components/MyListItem';
+import ListItemMakes from '../components/ListItemMakes';
 
 const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
@@ -33,7 +33,7 @@ export default class Makes extends React.Component {
   };
 
   //Press on a Make
-  _onPressItem = make => {
+  goToYears = make => {
     console.log('Make selected is: ' + make);
     //Store Make
     this.props.store.make = make;
@@ -45,7 +45,7 @@ export default class Makes extends React.Component {
   //Render every item of the list
   renderItem = ({ item }) => {
     return (
-      <MyListItem onPressItem={this._onPressItem} title={item.make_display} icon={item.make_id} />
+      <ListItemMakes onPressItem={this.goToYears} title={item.make_display} icon={item.make_id} />
     );
   };
 
