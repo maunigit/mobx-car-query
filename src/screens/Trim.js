@@ -33,7 +33,7 @@ export default class Trim extends React.Component {
     }
   };
 
-  //Press on a model
+  //Press on a trim
   goToDetail = trim => {
     console.log('Trim selected is: ' + trim);
     this.props.store.trim = trim;
@@ -42,10 +42,9 @@ export default class Trim extends React.Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  //TODO: mi serve il model_id
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={this.goToDetail} title={item.model_trim}/>);
+    return (<ListItemNoIcon onPressItem={() => this.goToDetail(item.model_id)} title={item.model_trim}/>);
   };
 
   //List of trims
