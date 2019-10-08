@@ -3,12 +3,12 @@ import { List, TouchableRipple } from 'react-native-paper';
 
 //Optimize list performance
 export default class ListItemNoIcon extends React.PureComponent {
-  //Press on year
+  //Press on
   _onPress = () => {
     this.props.onPressItem(this.props.title);
   };
 
-  //Show years list
+  //Show list
   render() {
     return (
       <TouchableRipple>
