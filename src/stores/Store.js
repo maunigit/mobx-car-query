@@ -8,6 +8,7 @@ class Store {
   @observable minYear = '';
   @observable year = 0;
   @observable models = [];
+  @observable model = '';
 }
 
 export default new Store();

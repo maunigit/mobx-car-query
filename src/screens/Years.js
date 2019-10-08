@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import ListItemYears from '../components/ListItemYears';
+import ListItemYearsModels from '../components/ListItemYearsModels';
 
 const URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 
@@ -42,7 +42,7 @@ export default class Years extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemYears onPressItem={this.goToModels} title={item.year}/>);
+    return (<ListItemYearsModels onPressItem={this.goToModels} title={item.year}/>);
   };
 
   //Generate years between two boundary

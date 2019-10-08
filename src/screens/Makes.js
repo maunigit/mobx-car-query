@@ -25,7 +25,6 @@ export default class Makes extends React.Component {
       let data = await response.json();
       //Store Makes
       this.props.store.makes = data.Makes;
-      //Print Makes object
       console.log(JSON.stringify(data.Makes));
     } catch (error) {
       alert(error);
