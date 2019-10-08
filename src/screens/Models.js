@@ -38,7 +38,7 @@ export default class Models extends React.Component {
 
   //Press on a model
   goToDetails = model => {
-    console.log('Model selected is: ' + model);
+    console.log('Model_name selected is: ' + model);
     this.props.store.model = model;
     this.props.navigation.navigate('Details');
   };

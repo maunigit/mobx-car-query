@@ -33,7 +33,7 @@ export default class Makes extends React.Component {
 
   //Press on a Make
   goToYears = make => {
-    console.log('Make selected is: ' + make);
+    console.log('Make_id selected is: ' + make);
     //Store Make
     this.props.store.make = make;
     this.props.navigation.navigate('Years');
