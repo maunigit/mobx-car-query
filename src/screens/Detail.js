@@ -35,7 +35,80 @@ export default class Detail extends React.Component {
   //List of details
   showDetails = () => {
     if (this.props.store.details) {
-      return null;
+      return (
+        <DataTable>
+        <ScrollView>
+          <DataTable.Row>
+            <DataTable.Cell>Country of Origin:</DataTable.Cell>
+            <DataTable.Cell numeric>USA</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Sold in US:</DataTable.Cell>
+            <DataTable.Cell numeric>No</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Body Style:</DataTable.Cell>
+            <DataTable.Cell numeric>Hatchback</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Engine Displacement (cubic inches):</DataTable.Cell>
+            <DataTable.Cell numeric>97</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Fuel Economy City(l/100km):</DataTable.Cell>
+            <DataTable.Cell numeric>Not Available</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Engine Fuel Type:</DataTable.Cell>
+            <DataTable.Cell numeric>Gasoline - Premium</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>G</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>H</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>I</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>L</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>M</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>N</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>O</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>P</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>Q</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>R</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>S</DataTable.Cell>
+            <DataTable.Cell numeric>237</DataTable.Cell>
+          </DataTable.Row>
+        </ScrollView>
+      </DataTable>
+      );
     } else {
       return null;
     }
