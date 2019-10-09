@@ -42,23 +42,24 @@ export default class Detail extends React.Component {
   //List of details
   showDetails = () => {
     let rows = [];
-    var keys = Object.keys(this.props.store.details);
-    for (var i = 0; i < keys.length; i++) {
-      console.log(key, this.props.store.details[key]);
-      var key = keys[i];
-      var value = this.props.store.details[key];
-      if (true) {
-        // TODO: complete here...
-        let keyDesc = key; // TODO: complete here...
-        rows.push(
-          <DataTable.Row key={i}>
-            <DataTable.Cell key={'X' + i}>{keyDesc}</DataTable.Cell>
-            <DataTable.Cell key={'Y' + i} numeric>
-              {value}
-            </DataTable.Cell>
-          </DataTable.Row>
-        );
-      }
+    let keys = Object.keys(this.props.store.details);
+    for (let i = 0; i < keys.length; i++) {
+      let key = keys[i];
+      let value = this.props.store.details[key];
+      if (value!=null) {
+        console.log('K: ' + key + ' V: ' + value);      
+        //metti il check se elem è da saltare
+        if (true) {
+          // TODO: complete here...
+          let keyDesc = key; // TODO: complete here...
+          rows.push(
+            <DataTable.Row key={i}>
+              <DataTable.Cell key={'K' + i}>{keyDesc}</DataTable.Cell>
+              <DataTable.Cell key={'V' + i} numeric>{value}</DataTable.Cell>
+            </DataTable.Row>
+          );
+        }
+      }      
     }
     return (
       <DataTable>
