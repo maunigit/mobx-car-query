@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   paragraph: {
+    flex: 1,
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
