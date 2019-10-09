@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import ListItemIcon from '../components/ListItemIcon';
 
@@ -8,14 +8,16 @@ const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 @inject('store')
 @observer
 export default class Make extends React.Component {
+  state = { isLoading: true };
+
   //Screen navigation
   static navigationOptions = {
     title: 'Make',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     console.log('MakeScreen - componentDidMount');
-    await this.getMakes();
+    this.getMakes();
   }
 
   //Fetch Makes
@@ -23,9 +25,9 @@ export default class Make extends React.Component {
     try {
       let response = await fetch(URL_MAKES);
       let data = await response.json();
-      //Store Makes
       this.props.store.makes = data.Makes;
       console.log(JSON.stringify(data.Makes));
+      this.setState({ isLoading: false });
     } catch (error) {
       alert(error);
     }
@@ -34,7 +36,6 @@ export default class Make extends React.Component {
   //Press on a Make
   goToYear = make => {
     console.log('Make_id selected is: ' + make);
-    //Store Make
     this.props.store.make = make;
     this.props.navigation.navigate('Year');
   };
@@ -50,22 +51,26 @@ export default class Make extends React.Component {
 
   //List of Makes
   showMakes = () => {
-    if (this.props.store.makes) {
-      return (
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={this.props.store.makes}
-          renderItem={this.renderItem}
-        />
-      );
-    } else {
-      return null;
-    }
+    return (
+      <FlatList
+        keyExtractor={this.keyExtractor}
+        data={this.props.store.makes}
+        renderItem={this.renderItem}
+      />
+    );
   };
 
   //Show Makes
   render() {
-    return <View style={styles.mainContainer}>{this.showMakes()}</View>;
+    if (this.state.isLoading) {
+      return (
+        <View style={[styles.mainContainer, styles.horizontal]}>
+          <ActivityIndicator size="large" color="green" />
+        </View>
+      );
+    } else {
+      return <View style={styles.mainContainer}>{this.showMakes()}</View>;
+    }
   }
 }
 
@@ -74,5 +79,10 @@ const styles = StyleSheet.create({
   mainContainer: {
     justifyContent: 'center',
     flex: 1,
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
   },
 });

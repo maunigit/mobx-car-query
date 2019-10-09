@@ -7,17 +7,16 @@ import ListItemNoIcon from '../components/ListItemNoIcon';
 @inject('store')
 @observer
 export default class Model extends React.Component {
-
-  state = {isLoading: true}
+  state = { isLoading: true };
 
   //Screen navigation
   static navigationOptions = {
     title: 'Model',
   };
 
-    componentDidMount() {
+  componentDidMount() {
     console.log('ModelScreen - componentDidMount');
-      this.getModels();
+    this.getModels();
   }
 
   //Fetch models
@@ -31,10 +30,9 @@ export default class Model extends React.Component {
       console.log('URL_MODELS è: ' + URL_MODELS);
       let response = await fetch(URL_MODELS);
       let data = await response.json();
-      //Store models
       this.props.store.models = data.Models;
       console.log(JSON.stringify(data.Models));
-      this.setState({isLoading: false});      
+      this.setState({ isLoading: false });
     } catch (error) {
       alert(error);
     }
@@ -51,20 +49,18 @@ export default class Model extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={this.goToTrim} title={item.model_name}/>);
+    return <ListItemNoIcon onPressItem={this.goToTrim} title={item.model_name} />;
   };
 
   //List of models
   showModels = () => {
-
-      return (
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={this.props.store.models}
-          renderItem={this.renderItem}
-        />
-      );
- 
+    return (
+      <FlatList
+        keyExtractor={this.keyExtractor}
+        data={this.props.store.models}
+        renderItem={this.renderItem}
+      />
+    );
   };
 
   //Show models
@@ -75,15 +71,17 @@ export default class Model extends React.Component {
           <ActivityIndicator animating={true} size="large" color="#0000ff" />
         </View>
       );
-    } else     if (this.props.store.models.length == 0) {   
-      return (<View style={styles.paragraph}>
-        <Text>Sorry, no model is present in this year.</Text>
-        <Text>Please choose another year.</Text>
-        </View>);
-  } else {  
-    return <View style={styles.mainContainer}>{this.showModels()}</View>;
+    } else if (this.props.store.models.length == 0) {
+      return (
+        <View style={styles.paragraph}>
+          <Text>Sorry, no model is present in this year.</Text>
+          <Text>Please choose another year.</Text>
+        </View>
+      );
+    } else {
+      return <View style={styles.mainContainer}>{this.showModels()}</View>;
+    }
   }
-}
 }
 
 //Style
@@ -92,8 +90,8 @@ const styles = StyleSheet.create({
   horizontal: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 10
-  },  
+    padding: 10,
+  },
   paragraph: {
     textAlign: 'center',
     alignItems: 'center',

@@ -12,11 +12,7 @@ export default class ListItemNoIcon extends React.PureComponent {
   render() {
     return (
       <TouchableRipple>
-        <List.Item
-          button
-          onPress={this._onPress}
-          title={this.props.title}
-        />
+        <List.Item button onPress={this._onPress} title={this.props.title} />
       </TouchableRipple>
     );
   }

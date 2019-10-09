@@ -6,35 +6,34 @@ import { DataTable } from 'react-native-paper';
 @inject('store')
 @observer
 export default class Detail extends React.Component {
-
-  state = {isLoading: true}
+  state = { isLoading: true };
 
   //Screen navigation
   static navigationOptions = {
     title: 'Detail',
   };
 
-    componentDidMount() {
+  componentDidMount() {
     console.log('DetailScreen - componentDidMount');
-      this.getDetails();
+    this.getDetails();
   }
 
   //Fetch details
   getDetails = async () => {
     try {
-      let URL_DETAILS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getModel&model=' +
+      let URL_DETAILS =
+        'https://www.carqueryapi.com/api/0.3/?&cmd=getModel&model=' +
         this.props.store.trim_model_id;
       console.log('URL_DETAILS è: ' + URL_DETAILS);
       let response = await fetch(URL_DETAILS);
       let data = await response.json();
-      //Store details
       let obj = null;
-      if(data.length>0){
+      if (data.length > 0) {
         obj = data[0];
       }
       this.props.store.details = obj;
       console.log('data: ' + JSON.stringify(data));
-      this.setState({isLoading: false});
+      this.setState({ isLoading: false });
     } catch (error) {
       alert(error);
     }
@@ -42,41 +41,30 @@ export default class Detail extends React.Component {
 
   //List of details
   showDetails = () => {
-    if (this.props.store.details) {
-
-let rows = [];
-var keys = Object.keys(this.props.store.details);
-for(var i=0; i<keys.length; i++){
-  console.log(key, this.props.store.details[key]);
-  var key = keys[i];
-  var value = this.props.store.details[key];
-if(true){  // TODO: complete here...
-  let keyDesc = key; // TODO: complete here...
+    let rows = [];
+    var keys = Object.keys(this.props.store.details);
+    for (var i = 0; i < keys.length; i++) {
+      console.log(key, this.props.store.details[key]);
+      var key = keys[i];
+      var value = this.props.store.details[key];
+      if (true) {
+        // TODO: complete here...
+        let keyDesc = key; // TODO: complete here...
         rows.push(
-  
-<DataTable.Row key={i}>
-<DataTable.Cell key={'X'+i}>{keyDesc}</DataTable.Cell>
-<DataTable.Cell key={'Y'+i} numeric>{value}</DataTable.Cell>
-</DataTable.Row>
-
-        );}
+          <DataTable.Row key={i}>
+            <DataTable.Cell key={'X' + i}>{keyDesc}</DataTable.Cell>
+            <DataTable.Cell key={'Y' + i} numeric>
+              {value}
+            </DataTable.Cell>
+          </DataTable.Row>
+        );
       }
-
-
-
-
-      return (
-        <DataTable>
-        <ScrollView>
-          
-     {rows}
-
-        </ScrollView>
-      </DataTable>
-      );
-    } else {
-      return null;
     }
+    return (
+      <DataTable>
+        <ScrollView>{rows}</ScrollView>
+      </DataTable>
+    );
   };
 
   //Show details
@@ -88,8 +76,7 @@ if(true){  // TODO: complete here...
         </View>
       );
     } else {
-
-    return <View style={styles.mainContainer}>{this.showDetails()}</View>;
+      return <View style={styles.mainContainer}>{this.showDetails()}</View>;
     }
   }
 }
@@ -97,10 +84,9 @@ if(true){  // TODO: complete here...
 //Style
 const styles = StyleSheet.create({
   mainContainer: { flex: 1, justifyContent: 'center' },
- 
   horizontal: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 10
-  }
+    padding: 10,
+  },
 });

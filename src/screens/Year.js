@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import ListItemNoIcon from '../components/ListItemNoIcon';
 
@@ -8,14 +8,16 @@ const URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 @inject('store')
 @observer
 export default class Year extends React.Component {
+  state = { isLoading: true };
+
   //Screen navigation
   static navigationOptions = {
     title: 'Year',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     console.log('YearScreen - componentDidMount');
-    await this.getBoundaryYears();
+    this.getBoundaryYears();
   }
 
   //Fetch boundary years
@@ -23,9 +25,9 @@ export default class Year extends React.Component {
     try {
       let response = await fetch(URL_YEARS);
       let data = await response.json();
-      //Store years
       this.props.store.maxYear = data.Years.max_year;
       this.props.store.minYear = data.Years.min_year;
+      this.setState({ isLoading: false });
     } catch (error) {
       alert(error);
     }
@@ -42,7 +44,7 @@ export default class Year extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={this.goToModel} title={item.year}/>);
+    return <ListItemNoIcon onPressItem={this.goToModel} title={item.year} />;
   };
 
   //Generate years between two boundary
@@ -58,23 +60,35 @@ export default class Year extends React.Component {
 
   //List of the years
   showYears = () => {
-    let years = this.createYears();
-    if (this.props.store.maxYear) {
-      return (
-        <FlatList keyExtractor={this.keyExtractor} data={years} renderItem={this.renderItem} />
-      );
-    } else {
-      return null;
-    }
+    return (
+      <FlatList
+        keyExtractor={this.keyExtractor}
+        data={this.createYears()}
+        renderItem={this.renderItem}
+      />
+    );
   };
 
   //Show years
   render() {
-    return <View style={styles.mainContainer}>{this.showYears()}</View>;
+    if (this.state.isLoading) {
+      return (
+        <View style={[styles.mainContainer, styles.horizontal]}>
+          <ActivityIndicator size="large" color="green" />
+        </View>
+      );
+    } else {
+      return <View style={styles.mainContainer}>{this.showYears()}</View>;
+    }
   }
 }
 
 //Style
 const styles = StyleSheet.create({
   mainContainer: { flex: 1, justifyContent: 'center' },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });

@@ -1,33 +1,39 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import ListItemNoIcon from '../components/ListItemNoIcon';
 
 @inject('store')
 @observer
 export default class Trim extends React.Component {
+  state = { isLoading: true };
+
   //Screen navigation
   static navigationOptions = {
     title: 'Trim',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     console.log('TrimScreen - componentDidMount');
-    await this.getTrims();
+    this.getTrims();
   }
 
   //Fetch trims
   getTrims = async () => {
     try {
-      let URL_TRIMS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getTrims&make=' +
-        this.props.store.make + '&year=' + this.props.store.year + 
-        '&model=' + this.props.store.model;
+      let URL_TRIMS =
+        'https://www.carqueryapi.com/api/0.3/?&cmd=getTrims&make=' +
+        this.props.store.make +
+        '&year=' +
+        this.props.store.year +
+        '&model=' +
+        this.props.store.model;
       console.log('URL_TRIMS è: ' + URL_TRIMS);
       let response = await fetch(URL_TRIMS);
       let data = await response.json();
-      //Store trims
       this.props.store.trims = data.Trims;
       console.log(JSON.stringify(data.Trims));
+      this.setState({ isLoading: false });
     } catch (error) {
       alert(error);
     }
@@ -45,31 +51,40 @@ export default class Trim extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return (<ListItemNoIcon onPressItem={() => this.goToDetail(item)} title={item.model_trim}/>);
+    return <ListItemNoIcon onPressItem={() => this.goToDetail(item)} title={item.model_trim} />;
   };
 
   //List of trims
   showTrims = () => {
-    if (this.props.store.trims) {
-      return (
-        <FlatList
-          keyExtractor={this.keyExtractor}
-          data={this.props.store.trims}
-          renderItem={this.renderItem}
-        />
-      );
-    } else {
-      return null;
-    }
+    return (
+      <FlatList
+        keyExtractor={this.keyExtractor}
+        data={this.props.store.trims}
+        renderItem={this.renderItem}
+      />
+    );
   };
 
   //Show trims
   render() {
-    return <View style={styles.mainContainer}>{this.showTrims()}</View>;
+    if (this.state.isLoading) {
+      return (
+        <View style={[styles.mainContainer, styles.horizontal]}>
+          <ActivityIndicator size="large" color="green" />
+        </View>
+      );
+    } else {
+      return <View style={styles.mainContainer}>{this.showTrims()}</View>;
+    }
   }
 }
 
 //Style
 const styles = StyleSheet.create({
   mainContainer: { flex: 1, justifyContent: 'center' },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
