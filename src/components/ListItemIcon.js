@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { List, TouchableRipple } from 'react-native-paper';
-import { ICONS_MAKES } from '../constantsCars';
+import { ICONS_MAKES } from '../constantsMakes';
 
 //Optimize list performance
 export default class ListItemIcon extends React.PureComponent {
