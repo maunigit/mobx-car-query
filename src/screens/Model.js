@@ -68,7 +68,7 @@ export default class Model extends React.Component {
     if (this.state.isLoading) {
       return (
         <View style={[styles.mainContainer, styles.horizontal]}>
-          <ActivityIndicator animating={true} size="large" color="#green" />
+          <ActivityIndicator animating={true} size="large" color="green" />
         </View>
       );
     } else if (this.props.store.models.length == 0) {
