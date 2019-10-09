@@ -72,7 +72,7 @@ export default class Detail extends React.Component {
     if (this.state.isLoading) {
       return (
         <View style={[styles.mainContainer, styles.horizontal]}>
-          <ActivityIndicator animating={true} size="large" color="#0000ff" />
+          <ActivityIndicator animating={true} size="large" color="#green" />
         </View>
       );
     } else {
