@@ -90,7 +90,7 @@ export default class Detail extends React.Component {
       'model_length_in':'Length (in)',
       'model_width_in':'Width (in)',
       'model_height_in':'Height (in)',
-      'model_height_in':'Wheelbase (in)',
+      'model_wheelbase_in':'Wheelbase (in)',
       'model_mpg_mixed':'Fuel Economy Mixed(mpg)',
       'model_fuel_cap_g':'Fuel Capacity(g)',
       'make_display':'Make',
@@ -113,7 +113,7 @@ export default class Detail extends React.Component {
         console.log('K: ' + key + ' V: ' + value);      
         //metti il check se elem è da saltare
         if (true) {
-          let keyDesc = descriptions[i];
+          let keyDesc = descriptions[key];
           rows.push(
             <DataTable.Row key={i}>
               <DataTable.Cell key={'K' + i}>{keyDesc}</DataTable.Cell>
