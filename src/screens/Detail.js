@@ -64,7 +64,7 @@ export default class Detail extends React.Component {
       'model_top_speed_kph':'Top Speed (KPH)',
       'model_0_to_100_kph':'0-100 kph',
       'model_drive':'Drive',
-      //:'Transmission Type',
+      'model_transmission_type':'Transmission Type',
       'model_seats':'Seats',
       'model_doors':'Doors',
       'model_weight_kg':'Weight (kg)',
