@@ -104,7 +104,8 @@ export default class Detail extends React.Component {
   //Check key of descriptions
   checkKeyDescriptions = (key, value) => {
     let cell=true;
-    if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'||key=='model_make_display'){
+    if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'
+      ||key=='model_make_display'||key=='make_display'||key=='make_country'){
       cell=false;   
     }else{
       if(key=='ExtColors'||key=='IntColors'){
@@ -116,12 +117,31 @@ export default class Detail extends React.Component {
     return cell;
   }
 
+  //Generate country and make cells
+  createCountryAndMakeCells = (descriptions, cells) => {
+    let i= -2;
+    cells.push(
+      <DataTable.Row key={i}>
+        <DataTable.Cell key={'K' + i}>{descriptions['make_country']}</DataTable.Cell>
+        <DataTable.Cell key={'V' + i} numeric>{this.props.store.details['make_country']}</DataTable.Cell>
+      </DataTable.Row>
+    );
+    i++;
+    cells.push(
+      <DataTable.Row key={i}>
+        <DataTable.Cell key={'K' + i}>{descriptions['make_display']}</DataTable.Cell>
+        <DataTable.Cell key={'V' + i} numeric>{this.props.store.details['make_display']}</DataTable.Cell>
+      </DataTable.Row>
+    );
+    return cells;
+  }
 
   //List of details
   showDetails = () => {
     let rows = [];
     let keys = Object.keys(this.props.store.details);
     let descriptions = this.createDescriptions();
+    rows = this.createCountryAndMakeCells(descriptions, rows);
     for (let i = 0; i < keys.length; i++) {
       let key = keys[i];
       let value = this.props.store.details[key];
