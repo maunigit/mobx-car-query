@@ -74,7 +74,7 @@ export default class Detail extends React.Component {
       'model_wheelbase_mm':'Wheelbase (mm)',
       'model_lkm_mixed':'Fuel Economy Mixed(l/100km)',
       'model_fuel_cap_l':'Fuel Capacity(l)',
-      'model_sold_in_us':'Sold in US',
+      'model_sold_in_us':'skip-model_sold_in_us',
       'model_make_display':'skip-model_make_display',
       'model_engine_l':'Engine Displacement (l)',
       'model_engine_ci':'Engine Displacement (cubic inches)',
@@ -101,10 +101,28 @@ export default class Detail extends React.Component {
     return descr;
   };
 
+  //Check descriptions
+  checkDescriptions = () => {
+
+    return null;
+  }
+
+
   //List of details
   showDetails = () => {
     let rows = [];
     let keys = Object.keys(this.props.store.details);
+    /*
+    console.log('K leng: ' + keys.length); 
+    delete keys["make_display"];
+    delete keys["make_country"];
+    //keys.splice('make_display',1);
+    //keys.splice('make_country',1);
+    console.log('K leng after remove: ' + keys.length); 
+    for (let i = 0; i < keys.length; i++) {
+      console.log('K: ' + keys[i]); 
+    }
+    */
     let descriptions = this.createDescriptions();
     for (let i = 0; i < keys.length; i++) {
       let key = keys[i];
@@ -112,7 +130,16 @@ export default class Detail extends React.Component {
       if (value!=null) {
         console.log('K: ' + key + ' V: ' + value);      
         //metti il check se elem è da saltare
-        if (true) {
+        let createCell=true;
+        if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'||key=='model_make_display'){
+          createCell=false;   
+        }
+        if(key=='ExtColors'||key=='IntColors'){
+          if(value.length==0){
+            createCell=false;
+          }      
+        }
+        if (createCell) {
           let keyDesc = descriptions[key];
           rows.push(
             <DataTable.Row key={i}>
