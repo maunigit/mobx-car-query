@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import ListItemNoIcon from '../components/ListItemNoIcon';
+import globalStyles from '../styles/Style';
 
 const URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 
@@ -73,22 +74,12 @@ export default class Year extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={[styles.mainContainer, styles.horizontal]}>
+        <View style={[globalStyles.container, globalStyles.horizontal]}>
           <ActivityIndicator size="large" color="green" />
         </View>
       );
     } else {
-      return <View style={styles.mainContainer}>{this.showYears()}</View>;
+      return <View style={globalStyles.container}>{this.showYears()}</View>;
     }
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  mainContainer: { flex: 1, justifyContent: 'center' },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-});

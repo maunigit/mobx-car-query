@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { Text } from 'react-native-paper';
 import ListItemIcon from '../components/ListItemIcon';
+import globalStyles from '../styles/Style';
 
 const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 
@@ -65,37 +66,18 @@ export default class Make extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={[styles.mainContainer, styles.horizontal]}>
+        <View style={[globalStyles.container, globalStyles.horizontal]}>
           <ActivityIndicator size="large" color="green" />
         </View>
       );
     } else if (this.props.store.makes.length == 0) {
       return (
-        <View style={styles.paragraph}>
+        <View style={globalStyles.paragraphText}>
           <Text>Sorry, no make is present.</Text>
         </View>
       );
     } else {
-      return <View style={styles.mainContainer}>{this.showMakes()}</View>;
+      return <View style={globalStyles.container}>{this.showMakes()}</View>;
     }
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  mainContainer: {
-    justifyContent: 'center',
-    flex: 1,
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-  paragraph: {
-    flex: 1,
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { Text } from 'react-native-paper';
 import { DataTable } from 'react-native-paper';
+import globalStyles from '../styles/Style';
 
 @inject('store')
 @observer
@@ -175,34 +176,18 @@ export default class Detail extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={[styles.mainContainer, styles.horizontal]}>
+        <View style={[globalStyles.container, globalStyles.horizontal]}>
           <ActivityIndicator animating={true} size="large" color="green" />
         </View>
       );
     } else if (this.props.store.details.length == 0) {
       return (
-        <View style={styles.paragraph}>
+        <View style={globalStyles.paragraphText}>
           <Text>Sorry, no detail is present.</Text>
         </View>
       );
     } else {
-      return <View style={styles.mainContainer}>{this.showDetails()}</View>;
+      return <View style={globalStyles.container}>{this.showDetails()}</View>;
     }
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  mainContainer: { flex: 1, justifyContent: 'center' },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-  paragraph: {
-    flex: 1,
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

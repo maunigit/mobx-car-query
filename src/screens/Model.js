@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { Text } from 'react-native-paper';
 import ListItemNoIcon from '../components/ListItemNoIcon';
+import globalStyles from '../styles/Style';
 
 @inject('store')
 @observer
@@ -67,35 +68,19 @@ export default class Model extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={[styles.mainContainer, styles.horizontal]}>
+        <View style={[globalStyles.container, globalStyles.horizontal]}>
           <ActivityIndicator animating={true} size="large" color="green" />
         </View>
       );
     } else if (this.props.store.models.length == 0) {
       return (
-        <View style={styles.paragraph}>
+        <View style={globalStyles.paragraphText}>
           <Text>Sorry, no model is present in this year.</Text>
           <Text>Please choose another year.</Text>
         </View>
       );
     } else {
-      return <View style={styles.mainContainer}>{this.showModels()}</View>;
+      return <View style={globalStyles.container}>{this.showModels()}</View>;
     }
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  mainContainer: { flex: 1, justifyContent: 'center' },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-  paragraph: {
-    flex: 1,
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
