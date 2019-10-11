@@ -19,6 +19,10 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
+    headerBackTitleVisible: 'true',
+    headerMode: 'float',
+    headerTransitionPreset: 'fade-in-place',
+    mode: 'card',
     //Screen header config
     defaultNavigationOptions: {
       headerStyle: {
