@@ -101,10 +101,19 @@ export default class Detail extends React.Component {
     return descr;
   };
 
-  //Check descriptions
-  checkDescriptions = () => {
-
-    return null;
+  //Check key of descriptions
+  checkKeyDescriptions = (key, value) => {
+    let cell=true;
+    if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'||key=='model_make_display'){
+      cell=false;   
+    }else{
+      if(key=='ExtColors'||key=='IntColors'){
+        if(value.length==0){
+          cell=false;
+        }      
+      }
+    }
+    return cell;
   }
 
 
@@ -112,33 +121,13 @@ export default class Detail extends React.Component {
   showDetails = () => {
     let rows = [];
     let keys = Object.keys(this.props.store.details);
-    /*
-    console.log('K leng: ' + keys.length); 
-    delete keys["make_display"];
-    delete keys["make_country"];
-    //keys.splice('make_display',1);
-    //keys.splice('make_country',1);
-    console.log('K leng after remove: ' + keys.length); 
-    for (let i = 0; i < keys.length; i++) {
-      console.log('K: ' + keys[i]); 
-    }
-    */
     let descriptions = this.createDescriptions();
     for (let i = 0; i < keys.length; i++) {
       let key = keys[i];
       let value = this.props.store.details[key];
       if (value!=null) {
-        console.log('K: ' + key + ' V: ' + value);      
-        //metti il check se elem è da saltare
-        let createCell=true;
-        if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'||key=='model_make_display'){
-          createCell=false;   
-        }
-        if(key=='ExtColors'||key=='IntColors'){
-          if(value.length==0){
-            createCell=false;
-          }      
-        }
+        console.log('K: ' + key + ' V: ' + value);
+        let createCell = this.checkKeyDescriptions(key, value);
         if (createCell) {
           let keyDesc = descriptions[key];
           rows.push(
