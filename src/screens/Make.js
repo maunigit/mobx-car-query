@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
+import { Text } from 'react-native-paper';
 import ListItemIcon from '../components/ListItemIcon';
 
 const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
@@ -68,6 +69,12 @@ export default class Make extends React.Component {
           <ActivityIndicator size="large" color="green" />
         </View>
       );
+    } else if (this.props.store.makes.length == 0) {
+      return (
+        <View style={styles.paragraph}>
+          <Text>Sorry, no make is present.</Text>
+        </View>
+      );
     } else {
       return <View style={styles.mainContainer}>{this.showMakes()}</View>;
     }
@@ -84,5 +91,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },
+  paragraph: {
+    flex: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { observer, inject } from 'mobx-react';
+import { Text } from 'react-native-paper';
 import ListItemNoIcon from '../components/ListItemNoIcon';
 
 @inject('store')
@@ -73,6 +74,13 @@ export default class Trim extends React.Component {
           <ActivityIndicator size="large" color="green" />
         </View>
       );
+    } else if (this.props.store.trims.length == 0) {
+      return (
+        <View style={styles.paragraph}>
+          <Text>Sorry, no trim is present.</Text>
+          <Text>Please choose another model.</Text>
+        </View>
+      );
     } else {
       return <View style={styles.mainContainer}>{this.showTrims()}</View>;
     }
@@ -86,5 +94,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },  
+  paragraph: {
+    flex: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

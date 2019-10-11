@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { observer, inject } from 'mobx-react';
+import { Text } from 'react-native-paper';
 import { DataTable } from 'react-native-paper';
 
 @inject('store')
@@ -174,6 +175,12 @@ export default class Detail extends React.Component {
           <ActivityIndicator animating={true} size="large" color="green" />
         </View>
       );
+    } else if (this.props.store.details.length == 0) {
+      return (
+        <View style={styles.paragraph}>
+          <Text>Sorry, no detail is present.</Text>
+        </View>
+      );
     } else {
       return <View style={styles.mainContainer}>{this.showDetails()}</View>;
     }
@@ -187,5 +194,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
+  },
+  paragraph: {
+    flex: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
