@@ -1,5 +1,5 @@
 {
-  "name": "carquery",  
+  "name": "carquery",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
@@ -40,6 +40,9 @@
     "babel-jest": "^24.9.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-expo": "^6.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.2",
     "eslint": "^6.3.0",
     "eslint-config-universe": "^1.0.7",
     "jest": "^24.9.0",
