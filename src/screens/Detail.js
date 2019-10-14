@@ -151,7 +151,7 @@ export default class Detail extends React.Component {
     for (let i = 0; i < keys.length; i++) {
       let key = keys[i];
       let value = this.props.store.details[key];
-      if (value!=null) {
+      if (value!=null && value!='Not Avai' && value!='Not Available') {
         console.log('K: ' + key + ' V: ' + value);
         let createCell = this.checkKeyDescriptions(key, value);
         if (createCell) {
