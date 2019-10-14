@@ -159,6 +159,9 @@ export default class Detail extends React.Component {
         console.log('K: ' + key + ' V: ' + value);
         let createCell = this.checkKeyDescriptions(key, value);
         if (createCell) {
+          if (key=='model_trim' && value=='') {
+            value = 'Default';
+          }
           let keyDesc = descriptions[key];
           rows.push(
             <DataTable.Row key={i}>
