@@ -31,6 +31,10 @@ export default class Model extends React.Component {
       console.log('URL_MODELS è: ' + URL_MODELS);
       let response = await fetch(URL_MODELS);
       let data = await response.json();
+      let statusCode = response.status;
+      if (statusCode != 200) {
+        console.log('ERROR: statusCode is ' + statusCode);
+      }
       this.props.store.models = data.Models;
       console.log(JSON.stringify(data.Models));
       this.setState({ isLoading: false });

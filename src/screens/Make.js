@@ -27,6 +27,10 @@ export default class Make extends React.Component {
     try {
       let response = await fetch(URL_MAKES);
       let data = await response.json();
+      let statusCode = response.status;
+      if (statusCode != 200) {
+        console.log('ERROR: statusCode is ' + statusCode);
+      }
       this.props.store.makes = data.Makes;
       console.log(JSON.stringify(data.Makes));
       this.setState({ isLoading: false });

@@ -29,6 +29,10 @@ export default class Detail extends React.Component {
       console.log('URL_DETAILS è: ' + URL_DETAILS);
       let response = await fetch(URL_DETAILS);
       let data = await response.json();
+      let statusCode = response.status;
+      if (statusCode != 200) {
+        console.log('ERROR: statusCode is ' + statusCode);
+      }
       let obj = null;
       if (data.length > 0) {
         obj = data[0];

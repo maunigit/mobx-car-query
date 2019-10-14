@@ -26,6 +26,10 @@ export default class Year extends React.Component {
     try {
       let response = await fetch(URL_YEARS);
       let data = await response.json();
+      let statusCode = response.status;
+      if (statusCode != 200) {
+        console.log('ERROR: statusCode is ' + statusCode);
+      }
       this.props.store.maxYear = data.Years.max_year;
       this.props.store.minYear = data.Years.min_year;
       this.setState({ isLoading: false });

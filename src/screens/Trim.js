@@ -33,6 +33,10 @@ export default class Trim extends React.Component {
       console.log('URL_TRIMS è: ' + URL_TRIMS);
       let response = await fetch(URL_TRIMS);
       let data = await response.json();
+      let statusCode = response.status;
+      if (statusCode != 200) {
+        console.log('ERROR: statusCode is ' + statusCode);
+      }
       this.props.store.trims = data.Trims;
       console.log(JSON.stringify(data.Trims));
       this.setState({ isLoading: false });
