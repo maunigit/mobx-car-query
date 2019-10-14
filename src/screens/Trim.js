@@ -57,6 +57,9 @@ export default class Trim extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
+    if (item.model_trim == '') {
+      item.model_trim = 'Default';
+    }
     return <ListItemNoIcon onPressItem={() => this.goToDetail(item)} title={item.model_trim} />;
   };
 
