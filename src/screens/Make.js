@@ -42,6 +42,8 @@ export default class Make extends React.Component {
   goBack = make => {
     console.log('Make_id selected is: ' + make);
     this.props.store.make = make;
+    console.log('Going back');
+    this.props.store.model='';  
     this.props.navigation.goBack();
   }
 

@@ -26,7 +26,7 @@ const AppNavigator = createStackNavigator(
     //Screen header config
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: 'black',
+        backgroundColor: 'indianred',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {

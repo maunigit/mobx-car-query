@@ -27,6 +27,7 @@ export default class Home extends React.Component {
   }
 
   reset = () =>{
+    console.log('Press reset');
     this.props.store.make='';
     this.props.store.year=0;
     this.props.store.model='';

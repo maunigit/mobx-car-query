@@ -49,6 +49,7 @@ export default class Trim extends React.Component {
     console.log('Trim selected is: ' + trim.model_trim);
     console.log('This trim has model_id: ' + trim.model_id);
     this.props.store.trim_model_id = trim.model_id;
+    console.log('Going back');
     this.props.navigation.goBack();
   };
 

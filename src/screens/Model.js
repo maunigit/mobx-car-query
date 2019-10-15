@@ -46,6 +46,8 @@ export default class Model extends React.Component {
   goBack = model => {
     console.log('Model_name selected is: ' + model);
     this.props.store.model = model;
+    console.log('Going back');
+    this.props.store.trim_model_id='';
     this.props.navigation.goBack();
   };
 

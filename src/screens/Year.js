@@ -41,6 +41,7 @@ export default class Year extends React.Component {
   goBack = year => {
     console.log('Year selected is: ' + year);
     this.props.store.year = year;
+    console.log('Going back');
     this.props.navigation.goBack();
   };
 
