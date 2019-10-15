@@ -39,19 +39,18 @@ export default class Make extends React.Component {
     }
   };
 
-  //Press on a Make
-  goToYear = make => {
+  goBack = make => {
     console.log('Make_id selected is: ' + make);
     this.props.store.make = make;
-    this.props.navigation.navigate('Year');
-  };
+    this.props.navigation.goBack();
+  }
 
   keyExtractor = (item, index) => index.toString();
 
   //Render every item of the list
   renderItem = ({ item }) => {
     return (
-      <ListItemIcon onPressItem={this.goToYear} title={item.make_display} icon={item.make_id} />
+      <ListItemIcon onPressItem={this.goBack} title={item.make_display} icon={item.make_id} />
     );
   };
 

@@ -45,12 +45,11 @@ export default class Trim extends React.Component {
     }
   };
 
-  //Press on a trim
-  goToDetail = trim => {
+  goBack = trim => {
     console.log('Trim selected is: ' + trim.model_trim);
     console.log('This trim has model_id: ' + trim.model_id);
     this.props.store.trim_model_id = trim.model_id;
-    this.props.navigation.navigate('Detail');
+    this.props.navigation.goBack();
   };
 
   keyExtractor = (item, index) => index.toString();
@@ -60,7 +59,7 @@ export default class Trim extends React.Component {
     if (item.model_trim == '') {
       item.model_trim = 'Default';
     }
-    return <ListItemNoIcon onPressItem={() => this.goToDetail(item)} title={item.model_trim} />;
+    return <ListItemNoIcon onPressItem={() => this.goBack(item)} title={item.model_trim} />;
   };
 
   //List of trims
