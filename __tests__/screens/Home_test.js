@@ -1,13 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow, configure } from 'enzyme';
 import Home from '../../src/screens/Home';
+import Store from "../../src/stores/Store";
+import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-//Snapshot test
-//configure({adapter: new Adapter()});
-it('App test against snapshot', () => {
+//see https://github.com/mobxjs/mobx-react#testing-store-injection
+/*
+  //configure({adapter: new Adapter()});
   //const wrapper = shallow(<Home.wrappedComponent />);
-  const tree = renderer.create(<Home />).toJSON();
+  const mountedComponent = mount(
+    <Home store={store} />
+ );
+ */
+//Snapshot test
+it('App test against snapshot', () => {  
+  const store = Store;  
+  const tree = renderer.create(<Home store={store} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
