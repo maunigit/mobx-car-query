@@ -26,6 +26,13 @@ export default class Home extends React.Component {
     return true;
   }
 
+  disableDetail = () => {
+    if(this.props.store.trim_model_id!=''){
+      return false;
+    }
+    return true;
+  }
+
   reset = () =>{
     console.log('Press reset');
     this.props.store.make='';
@@ -63,6 +70,7 @@ export default class Home extends React.Component {
             color="orange"
             mode="contained"
             icon="check"
+            disabled={this.disableDetail()}
             onPress={() => this.props.navigation.navigate('Detail')}>
             show details
           </Button>
