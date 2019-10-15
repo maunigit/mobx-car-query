@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { Provider } from "mobx-react";
 import { DefaultTheme, DarkTheme, Provider as PaperProvider } from 'react-native-paper';
 import Store from "./src/stores/Store";
@@ -27,7 +27,7 @@ export default class App extends React.Component {
 //Theme of the app
 const theme = {
   ...DefaultTheme,
-  dark: true,
+  dark: false,
   roundness: 8,
   colors: {
       ...DefaultTheme.colors,
