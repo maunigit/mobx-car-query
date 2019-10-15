@@ -12,6 +12,27 @@ export default class Home extends React.Component {
     title: 'Home',
   };
 
+  disableModel = () => {
+    if(this.props.store.make!=''&&this.props.store.year>0){
+      return false;
+    }
+    return true;
+  }
+
+  disableTrim = () => {
+    if(this.props.store.model!=''){
+      return false;
+    }
+    return true;
+  }
+
+  reset = () =>{
+    this.props.store.make='';
+    this.props.store.year=0;
+    this.props.store.model='';
+    this.props.store.trim_model_id='';
+  }
+
   //Show filters
   render() {
     return (
@@ -28,12 +49,12 @@ export default class Home extends React.Component {
         </TouchableOpacity>           
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Model')} 
-            title={'Model'} description={'Avaiable models of a make'} disabled={true} 
+            title={'Model'} description={'Avaiable models of a make'} disabled={this.disableModel()} 
             left={props => <List.Icon {...props} icon="car-side"/>}/>
         </TouchableOpacity>   
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Trim')} 
-            title={'Trim'} description={'Avaiable trims of a model'} disabled={true} 
+            title={'Trim'} description={'Avaiable trims of a model'} disabled={this.disableTrim()} 
             left={props => <List.Icon {...props} icon="engine-outline"/>}/>
         </TouchableOpacity>
         <View style={globalStyles.button}>
@@ -42,6 +63,12 @@ export default class Home extends React.Component {
             mode="contained"
             onPress={() => this.props.navigation.navigate('Detail')}>
             show details
+          </Button>
+          <Button
+            color="red"
+            mode="contained"
+            onPress={() => this.reset()}>
+            reset
           </Button>
         </View>        
       </View>    
