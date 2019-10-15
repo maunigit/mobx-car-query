@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     homeContainer: { 
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center' 
+        flex: 1,         
+        textAlign: 'center',        
+        justifyContent: 'center'
     },
     container: { 
         flex: 1, 
@@ -13,12 +13,15 @@ export default StyleSheet.create({
     horizontal: {
       flexDirection: 'row',
       justifyContent: 'space-around',
-      padding: 10,
+      padding: 10
     },
     paragraphText: {
       flex: 1,
       textAlign: 'center',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'center'
+    },
+    button: {
+      alignItems: 'center'
     },
 });
