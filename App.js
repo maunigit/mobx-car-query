@@ -31,15 +31,13 @@ const theme = {
   roundness: 8,
   colors: {
       ...DefaultTheme.colors,
-      primary: '#2F496E',
-      accent: '#2988BC',
-      error: '#ee0013',
-      text: 'black',
-      // surface: '#d7d8d6',    
-      placeholder: '#FF5722',    
-      notification: '#f2d7f2',
-      disabled: '#B1AA7D',
-      // backdrop: '#874630',
-      background: '#6200ee',
+      primary: 'blue',
+      accent: 'aqua',
+      error: 'red',
+      text: 'black',   
+      placeholder: 'orange',    
+      notification: 'blueviolet',
+      disabled: 'gray',
+      background: 'darkolivegreen',
   }
 };
