@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { observer, inject } from 'mobx-react';
-import { Button, List, TouchableRipple, Title } from 'react-native-paper';
+import { Button, List } from 'react-native-paper';
 import globalStyles from '../styles/Style';
 
 @inject('store')
