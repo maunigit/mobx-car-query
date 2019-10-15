@@ -32,13 +32,7 @@ export default class Home extends React.Component {
           color="orange"
           mode="contained"
           onPress={() => this.props.navigation.navigate('Detail')}>
-          show details (app logic)
-        </Button>
-        <Button
-          color="green"
-          mode="contained"
-          onPress={() => this.props.navigation.navigate('Make')}>
-          show makes (web logic)
+          show details
         </Button>
         </View>
     </View>);
