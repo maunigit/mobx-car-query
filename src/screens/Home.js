@@ -10,6 +10,13 @@ export default class Home extends React.Component {
   //Screen navigation
   static navigationOptions = {
     title: 'Home',
+    headerRight: (
+      <Button
+        color='white'
+        icon="dots-vertical"
+        onPress={() => alert('CarQ version 0.0.1')}>
+      </Button>
+    )
   };
 
   disableModel = () => {
