@@ -1,9 +1,10 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, SafeAreaView } from "react-native";
 import { Provider } from "mobx-react";
 import { DefaultTheme, DarkTheme, Provider as PaperProvider } from 'react-native-paper';
 import Store from "./src/stores/Store";
 import AppNavigator from './src/navigation/AppNavigator';
+import globalStyles from './src/styles/Style';
 
 //Navigable app
 export default class App extends React.Component {
@@ -12,22 +13,16 @@ export default class App extends React.Component {
       //For use the store
       <Provider store={Store}>
         <PaperProvider theme={theme}>
-          <View style={styles.container}>
-            <AppNavigator />
-          </View>
+          <SafeAreaView style={globalStyles.safeArea}>
+            <View style={globalStyles.container}>
+              <AppNavigator />
+            </View>
+          </SafeAreaView>
         </PaperProvider>
       </Provider>
     );
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center"
-  }
-});
 
 //Theme of the app
 const theme = {
