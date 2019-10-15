@@ -61,12 +61,14 @@ export default class Home extends React.Component {
           <Button
             color="orange"
             mode="contained"
+            icon="check"
             onPress={() => this.props.navigation.navigate('Detail')}>
             show details
           </Button>
           <Button
-            color="red"
+            color="lightgray"
             mode="contained"
+            icon="close"
             onPress={() => this.reset()}>
             reset
           </Button>

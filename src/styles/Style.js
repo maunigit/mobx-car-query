@@ -22,6 +22,9 @@ export default StyleSheet.create({
       justifyContent: 'center'
     },
     button: {
-      alignItems: 'center'
+      alignItems: 'center',
+      flex: 1,
+      flexDirection: 'row',      
+      justifyContent: 'space-around'
     },
 });
