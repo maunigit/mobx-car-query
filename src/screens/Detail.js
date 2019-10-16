@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { Text } from 'react-native-paper';
 import { DataTable } from 'react-native-paper';
 import globalStyles from '../styles/Style';
+import * as Localization from 'expo-localization';
 
 @inject('store')
 @observer

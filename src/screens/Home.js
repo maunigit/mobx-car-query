@@ -32,8 +32,8 @@ export default class Home extends React.Component {
 
   disableModel = () => {
     if(this.props.store.make_id!=''&&this.props.store.year>0){
-      this.setState({ modelTitleStyle: globalStyles.titleEnable });
-      this.setState({ modelDescriptionStyle: globalStyles.descriptionEnable });
+      //this.setState({ modelTitleStyle: globalStyles.titleEnable });
+      //this.setState({ modelDescriptionStyle: globalStyles.descriptionEnable });
       return false;
     }
     return true;
