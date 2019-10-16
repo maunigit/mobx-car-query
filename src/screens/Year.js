@@ -38,10 +38,13 @@ export default class Year extends React.Component {
     }
   };
 
-  goBack = year => {
-    console.log('Year selected is: ' + year);
-    this.props.store.year = year;
+  goBack = item => {
+    console.log('Year selected is: ' + item.year);
+    this.props.store.year = item.year;     
     console.log('Going back');
+    this.props.store.model_name='';
+    this.props.store.trim_id='';
+    this.props.store.trim_name='';
     this.props.navigation.goBack();
   };
 
@@ -49,7 +52,7 @@ export default class Year extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return <ListItemNoIcon onPressItem={this.goBack} title={item.year} />;
+    return <ListItemNoIcon onPressItem={this.goBack} title={item.year} save={item} />;
   };
 
   //Generate years between two boundary

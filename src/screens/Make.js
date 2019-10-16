@@ -40,10 +40,13 @@ export default class Make extends React.Component {
   };
 
   goBack = make => {
-    console.log('Make_id selected is: ' + make);
-    this.props.store.make = make;
+    console.log('Make_id selected is: ' + make.make_id);
+    this.props.store.make_id = make.make_id;
+    this.props.store.make_display = make.make_display;
     console.log('Going back');
-    this.props.store.model='';  
+    this.props.store.model_name='';
+    this.props.store.trim_id='';
+    this.props.store.trim_name='';
     this.props.navigation.goBack();
   }
 
@@ -52,7 +55,7 @@ export default class Make extends React.Component {
   //Render every item of the list
   renderItem = ({ item }) => {
     return (
-      <ListItemIcon onPressItem={this.goBack} title={item.make_display} icon={item.make_id} />
+      <ListItemIcon onPressItem={this.goBack} title={item.make_display} icon={item.make_id} save={item}/>
     );
   };
 

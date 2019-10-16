@@ -25,11 +25,11 @@ export default class Trim extends React.Component {
     try {
       let URL_TRIMS =
         'https://www.carqueryapi.com/api/0.3/?&cmd=getTrims&make=' +
-        this.props.store.make +
+        this.props.store.make_id +
         '&year=' +
         this.props.store.year +
         '&model=' +
-        this.props.store.model;
+        this.props.store.model_name;
       console.log('URL_TRIMS è: ' + URL_TRIMS);
       let response = await fetch(URL_TRIMS);
       let data = await response.json();
@@ -45,11 +45,13 @@ export default class Trim extends React.Component {
     }
   };
 
-  goBack = trim => {
-    console.log('Trim selected is: ' + trim.model_trim);
-    console.log('This trim has model_id: ' + trim.model_id);
-    this.props.store.trim_model_id = trim.model_id;
+  goBack = item => {
+    console.log('Trim selected is: ' + item.model_trim);
+    console.log('This trim has model_id: ' + item.model_id);
+    this.props.store.trim_id = item.model_id;
+    this.props.store.trim_name = item.model_trim;
     console.log('Going back');
+    this.props.store.details=[];
     this.props.navigation.goBack();
   };
 
@@ -60,7 +62,7 @@ export default class Trim extends React.Component {
     if (item.model_trim == '') {
       item.model_trim = 'Default';
     }
-    return <ListItemNoIcon onPressItem={() => this.goBack(item)} title={item.model_trim} />;
+    return <ListItemNoIcon onPressItem={this.goBack} title={item.model_trim} save={item} />;
   };
 
   //List of trims

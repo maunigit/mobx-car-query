@@ -25,7 +25,7 @@ export default class Model extends React.Component {
     try {
       let URL_MODELS =
         'https://www.carqueryapi.com/api/0.3/?&cmd=getModels&make=' +
-        this.props.store.make +
+        this.props.store.make_id +
         '&year=' +
         this.props.store.year;
       console.log('URL_MODELS è: ' + URL_MODELS);
@@ -43,11 +43,12 @@ export default class Model extends React.Component {
     }
   };
 
-  goBack = model => {
-    console.log('Model_name selected is: ' + model);
-    this.props.store.model = model;
+  goBack = item => {
+    console.log('Model_name selected is: ' + item.model_name);
+    this.props.store.model_name = item.model_name;
     console.log('Going back');
-    this.props.store.trim_model_id='';
+    this.props.store.trim_id='';
+    this.props.store.trim_name='';
     this.props.navigation.goBack();
   };
 
@@ -55,7 +56,7 @@ export default class Model extends React.Component {
 
   //Render every item of the list
   renderItem = ({ item }) => {
-    return <ListItemNoIcon onPressItem={this.goBack} title={item.model_name} />;
+    return <ListItemNoIcon onPressItem={this.goBack} title={item.model_name} save={item} />;
   };
 
   //List of models
