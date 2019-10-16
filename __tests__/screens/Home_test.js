@@ -14,7 +14,7 @@ import Adapter from 'enzyme-adapter-react-16';
  );
  */
 //Snapshot test
-it('App test against snapshot', () => {  
+it('Home renders correctly', () => {  
   const store = Store;  
   const tree = renderer.create(<Home store={store} />).toJSON();
   expect(tree).toMatchSnapshot();

@@ -147,10 +147,7 @@ exports[`App test against snapshot 1`] = `
                                 "margin": 8,
                                 "width": 40,
                               },
-                              Object {
-                                "marginLeft": 0,
-                                "marginRight": 16,
-                              },
+                              undefined,
                             ]
                           }
                         >
@@ -189,139 +186,11 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.87)",
                                   },
-                                  undefined,
-                                ],
-                              ]
-                            }
-                          >
-                            Year
-                          </Text>
-                          <Text
-                            numberOfLines={2}
-                            style={
-                              Array [
-                                Object {
-                                  "color": "black",
-                                  "fontFamily": "System",
-                                  "fontWeight": "400",
-                                  "textAlign": "left",
-                                  "writingDirection": "ltr",
-                                },
-                                Array [
                                   Object {
-                                    "fontSize": 14,
+                                    "color": "black",
+                                    "fontSize": 20,
+                                    "fontWeight": "bold",
                                   },
-                                  Object {
-                                    "color": "rgba(0, 0, 0, 0.54)",
-                                  },
-                                  undefined,
-                                ],
-                              ]
-                            }
-                          >
-                            Select a year
-                          </Text>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                  <View
-                    accessible={true}
-                    isTVSelectable={true}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      accessible={true}
-                      isTVSelectable={true}
-                      onResponderGrant={[Function]}
-                      onResponderMove={[Function]}
-                      onResponderRelease={[Function]}
-                      onResponderTerminate={[Function]}
-                      onResponderTerminationRequest={[Function]}
-                      onStartShouldSetResponder={[Function]}
-                      style={
-                        Array [
-                          false,
-                          Array [
-                            Object {
-                              "padding": 8,
-                            },
-                            undefined,
-                          ],
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "flexDirection": "row",
-                          }
-                        }
-                      >
-                        <View
-                          pointerEvents="box-none"
-                          style={
-                            Array [
-                              Object {
-                                "alignItems": "center",
-                                "height": 40,
-                                "justifyContent": "center",
-                                "margin": 8,
-                                "width": 40,
-                              },
-                              Object {
-                                "marginLeft": 0,
-                                "marginRight": 16,
-                              },
-                            ]
-                          }
-                        >
-                          <Text />
-                        </View>
-                        <View
-                          pointerEvents="none"
-                          style={
-                            Array [
-                              Object {
-                                "marginVertical": 6,
-                                "paddingLeft": 8,
-                              },
-                              Object {
-                                "flex": 1,
-                                "justifyContent": "center",
-                              },
-                            ]
-                          }
-                        >
-                          <Text
-                            numberOfLines={1}
-                            style={
-                              Array [
-                                Object {
-                                  "color": "black",
-                                  "fontFamily": "System",
-                                  "fontWeight": "400",
-                                  "textAlign": "left",
-                                  "writingDirection": "ltr",
-                                },
-                                Array [
-                                  Object {
-                                    "fontSize": 16,
-                                  },
-                                  Object {
-                                    "color": "rgba(0, 0, 0, 0.87)",
-                                  },
-                                  undefined,
                                 ],
                               ]
                             }
@@ -346,7 +215,10 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.54)",
                                   },
-                                  undefined,
+                                  Object {
+                                    "color": "black",
+                                    "fontSize": 16,
+                                  },
                                 ],
                               ]
                             }
@@ -411,10 +283,7 @@ exports[`App test against snapshot 1`] = `
                                 "margin": 8,
                                 "width": 40,
                               },
-                              Object {
-                                "marginLeft": 0,
-                                "marginRight": 16,
-                              },
+                              undefined,
                             ]
                           }
                         >
@@ -453,7 +322,147 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.87)",
                                   },
-                                  undefined,
+                                  Object {
+                                    "color": "black",
+                                    "fontSize": 20,
+                                    "fontWeight": "bold",
+                                  },
+                                ],
+                              ]
+                            }
+                          >
+                            Year
+                          </Text>
+                          <Text
+                            numberOfLines={2}
+                            style={
+                              Array [
+                                Object {
+                                  "color": "black",
+                                  "fontFamily": "System",
+                                  "fontWeight": "400",
+                                  "textAlign": "left",
+                                  "writingDirection": "ltr",
+                                },
+                                Array [
+                                  Object {
+                                    "fontSize": 14,
+                                  },
+                                  Object {
+                                    "color": "rgba(0, 0, 0, 0.54)",
+                                  },
+                                  Object {
+                                    "color": "black",
+                                    "fontSize": 16,
+                                  },
+                                ],
+                              ]
+                            }
+                          >
+                            Select a year
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                  <View
+                    accessible={true}
+                    isTVSelectable={true}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      isTVSelectable={true}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          false,
+                          Array [
+                            Object {
+                              "padding": 8,
+                            },
+                            undefined,
+                          ],
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "flexDirection": "row",
+                          }
+                        }
+                      >
+                        <View
+                          pointerEvents="box-none"
+                          style={
+                            Array [
+                              Object {
+                                "alignItems": "center",
+                                "height": 40,
+                                "justifyContent": "center",
+                                "margin": 8,
+                                "width": 40,
+                              },
+                              undefined,
+                            ]
+                          }
+                        >
+                          <Text />
+                        </View>
+                        <View
+                          pointerEvents="none"
+                          style={
+                            Array [
+                              Object {
+                                "marginVertical": 6,
+                                "paddingLeft": 8,
+                              },
+                              Object {
+                                "flex": 1,
+                                "justifyContent": "center",
+                              },
+                            ]
+                          }
+                        >
+                          <Text
+                            numberOfLines={1}
+                            style={
+                              Array [
+                                Object {
+                                  "color": "black",
+                                  "fontFamily": "System",
+                                  "fontWeight": "400",
+                                  "textAlign": "left",
+                                  "writingDirection": "ltr",
+                                },
+                                Array [
+                                  Object {
+                                    "fontSize": 16,
+                                  },
+                                  Object {
+                                    "color": "rgba(0, 0, 0, 0.87)",
+                                  },
+                                  Object {
+                                    "color": "gray",
+                                    "fontSize": 20,
+                                    "fontWeight": "bold",
+                                  },
                                 ],
                               ]
                             }
@@ -478,7 +487,10 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.54)",
                                   },
-                                  undefined,
+                                  Object {
+                                    "color": "gray",
+                                    "fontSize": 16,
+                                  },
                                 ],
                               ]
                             }
@@ -543,10 +555,7 @@ exports[`App test against snapshot 1`] = `
                                 "margin": 8,
                                 "width": 40,
                               },
-                              Object {
-                                "marginLeft": 0,
-                                "marginRight": 16,
-                              },
+                              undefined,
                             ]
                           }
                         >
@@ -585,7 +594,11 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.87)",
                                   },
-                                  undefined,
+                                  Object {
+                                    "color": "gray",
+                                    "fontSize": 20,
+                                    "fontWeight": "bold",
+                                  },
                                 ],
                               ]
                             }
@@ -610,7 +623,10 @@ exports[`App test against snapshot 1`] = `
                                   Object {
                                     "color": "rgba(0, 0, 0, 0.54)",
                                   },
-                                  undefined,
+                                  Object {
+                                    "color": "gray",
+                                    "fontSize": 16,
+                                  },
                                 ],
                               ]
                             }
@@ -929,7 +945,7 @@ exports[`App test against snapshot 1`] = `
                         style={
                           Object {
                             "color": "white",
-                            "fontSize": 17,
+                            "fontSize": 20,
                             "fontWeight": "bold",
                             "marginHorizontal": 16,
                             "textAlign": "center",
