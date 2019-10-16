@@ -17,7 +17,7 @@ export default class ListItemIcon extends React.PureComponent {
 
   //Press on Make
   _onPress = () => {
-    this.props.onPressItem(this.props.icon);
+    this.props.onPressItem(this.props.save);
   };
 
   //Show Makes list

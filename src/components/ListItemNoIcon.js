@@ -5,7 +5,7 @@ import { List, TouchableRipple } from 'react-native-paper';
 export default class ListItemNoIcon extends React.PureComponent {
   //Press on
   _onPress = () => {
-    this.props.onPressItem(this.props.title);
+    this.props.onPressItem(this.props.save);
   };
 
   //Show list
