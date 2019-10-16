@@ -31,6 +31,7 @@ const AppNavigator = createStackNavigator(
       headerTintColor: 'white',
       headerTitleStyle: {
         fontWeight: 'bold',
+        fontSize: 20,
       },
     },
   }
