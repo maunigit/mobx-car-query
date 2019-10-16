@@ -50,6 +50,7 @@
     "jest-expo": "^34.0.1",
     "path": "^0.12.7",
     "prettier": "^1.18.2",
+    "react-devtools": "^3.6.3",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0",
     "svg-to-png": "^4.0.0"
