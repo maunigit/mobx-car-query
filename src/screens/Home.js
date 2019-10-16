@@ -20,21 +20,21 @@ export default class Home extends React.Component {
   };
 
   disableModel = () => {
-    if(this.props.store.make!=''&&this.props.store.year>0){
+    if(this.props.store.make_id!=''&&this.props.store.year>0){
       return false;
     }
     return true;
   }
 
   disableTrim = () => {
-    if(this.props.store.model!=''){
+    if(this.props.store.model_name!=''){
       return false;
     }
     return true;
   }
 
   disableDetail = () => {
-    if(this.props.store.trim_model_id!=''){
+    if(this.props.store.trim_id!=''){
       return false;
     }
     return true;
@@ -42,10 +42,40 @@ export default class Home extends React.Component {
 
   reset = () =>{
     console.log('Press reset');
-    this.props.store.make='';
+    this.props.store.make_id='';
+    this.props.store.make_display='';
     this.props.store.year=0;
-    this.props.store.model='';
-    this.props.store.trim_model_id='';
+    this.props.store.model_name='';
+    this.props.store.trim_id='';
+    this.props.store.trim_name='';
+  }
+
+  checkDescriptionMake = () =>{
+    if(this.props.store.make_display!=''){
+      return this.props.store.make_display;
+    }
+    return 'Select a make';
+  }
+
+  checkDescriptionYear = () =>{
+    if(this.props.store.year>0){
+      return this.props.store.year;
+    }
+    return 'Select a year';
+  }
+
+  checkDescriptionModel = () =>{
+    if(this.props.store.model_name!=''){
+      return this.props.store.model_name;
+    }
+    return 'Avaiable models of a make';
+  }
+
+  checkDescriptionTrim = () =>{
+    if(this.props.store.trim_name!=''){
+      return this.props.store.trim_name;
+    }
+    return 'Avaiable trims of a model';
   }
 
   //Show filters
@@ -53,23 +83,23 @@ export default class Home extends React.Component {
     return (
       <View style={globalStyles.homeContainer}>
         <TouchableOpacity >
-          <List.Item button onPress={() => this.props.navigation.navigate('Year')} 
-            title={'Year'} description={'Select a year'}
-            left={props => <List.Icon {...props} icon="calendar-range"/>}/>
-        </TouchableOpacity>
-        <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Make')}
-            title={'Make'} description={'Select a make'}
+            title={'Make'} description={this.checkDescriptionMake()}
             left={props => <List.Icon {...props} icon="car"/>}/>
-        </TouchableOpacity>           
+        </TouchableOpacity> 
+        <TouchableOpacity >
+          <List.Item button onPress={() => this.props.navigation.navigate('Year')} 
+            title={'Year'} description={this.checkDescriptionYear()}
+            left={props => <List.Icon {...props} icon="calendar-range"/>}/>
+        </TouchableOpacity>                  
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Model')} 
-            title={'Model'} description={'Avaiable models of a make'} disabled={this.disableModel()} 
+            title={'Model'} description={this.checkDescriptionModel()} disabled={this.disableModel()} 
             left={props => <List.Icon {...props} icon="car-side"/>}/>
         </TouchableOpacity>   
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Trim')} 
-            title={'Trim'} description={'Avaiable trims of a model'} disabled={this.disableTrim()} 
+            title={'Trim'} description={this.checkDescriptionTrim()} disabled={this.disableTrim()} 
             left={props => <List.Icon {...props} icon="engine-outline"/>}/>
         </TouchableOpacity>
         <View style={globalStyles.button}>
