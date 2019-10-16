@@ -30,4 +30,22 @@ export default StyleSheet.create({
     safeArea: {
       flex: 1
     },
+    titleDisable: {
+      color: 'gray',
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    titleEnable: {  
+      color: 'black',    
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+    descriptionDisable: {
+      color: 'gray',
+      fontSize: 16,
+    },
+    descriptionEnable: {
+      color: 'black',    
+      fontSize: 16,
+    },
 });

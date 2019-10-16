@@ -7,6 +7,17 @@ import globalStyles from '../styles/Style';
 @inject('store')
 @observer
 export default class Home extends React.Component {
+  state = { 
+    makeTitleStyle: globalStyles.titleEnable,
+    yearTitleStyle: globalStyles.titleEnable,
+    modelTitleStyle: globalStyles.titleDisable,
+    trimTitleStyle: globalStyles.titleDisable,
+    makeDescriptionStyle: globalStyles.descriptionEnable,
+    yearDescriptionStyle: globalStyles.descriptionEnable,
+    modelDescriptionStyle: globalStyles.descriptionDisable,
+    trimDescriptionStyle: globalStyles.descriptionDisable
+  };
+ 
   //Screen navigation
   static navigationOptions = {
     title: 'Home',
@@ -21,6 +32,8 @@ export default class Home extends React.Component {
 
   disableModel = () => {
     if(this.props.store.make_id!=''&&this.props.store.year>0){
+      this.setState({ modelTitleStyle: globalStyles.titleEnable });
+      this.setState({ modelDescriptionStyle: globalStyles.descriptionEnable });
       return false;
     }
     return true;
@@ -85,22 +98,26 @@ export default class Home extends React.Component {
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Make')}
             title={'Make'} description={this.checkDescriptionMake()}
-            left={props => <List.Icon {...props} icon="car"/>}/>
+            left={props => <List.Icon color={'black'} icon="car"/>} 
+            titleStyle={this.state.makeTitleStyle} descriptionStyle={this.state.makeDescriptionStyle} />
         </TouchableOpacity> 
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Year')} 
             title={'Year'} description={this.checkDescriptionYear()}
-            left={props => <List.Icon {...props} icon="calendar-range"/>}/>
+            left={props => <List.Icon color={'black'} icon="calendar-range"/>} 
+            titleStyle={this.state.yearTitleStyle} descriptionStyle={this.state.yearDescriptionStyle}/>
         </TouchableOpacity>                  
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Model')} 
             title={'Model'} description={this.checkDescriptionModel()} disabled={this.disableModel()} 
-            left={props => <List.Icon {...props} icon="car-side"/>}/>
+            left={props => <List.Icon color={'gray'} icon="car-side"/>} 
+            titleStyle={this.state.modelTitleStyle} descriptionStyle={this.state.modelDescriptionStyle} />
         </TouchableOpacity>   
         <TouchableOpacity >
           <List.Item button onPress={() => this.props.navigation.navigate('Trim')} 
             title={'Trim'} description={this.checkDescriptionTrim()} disabled={this.disableTrim()} 
-            left={props => <List.Icon {...props} icon="engine-outline"/>}/>
+            left={props => <List.Icon color={'gray'} icon="engine-outline"/>} 
+            titleStyle={this.state.trimTitleStyle} descriptionStyle={this.state.trimDescriptionStyle}/>
         </TouchableOpacity>
         <View style={globalStyles.button}>
           <Button
