@@ -46,7 +46,6 @@ export default class Detail extends React.Component {
     }
   };
 
-  //see: https://en.wikipedia.org/wiki/Language_localisation
   //Generate descriptions
   createDescriptions = () => {
     let descr = {
@@ -113,18 +112,37 @@ export default class Detail extends React.Component {
   };
 
   //Check key of descriptions
-  checkKeyDescriptions = (key, value) => {
+  checkKeyDescriptions = (key, value, country) => {
     let cell=true;
     if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'
       ||key=='model_make_display'||key=='make_display'||key=='make_country'){
-      cell=false;   
+      return false;   
     }else{
       if(key=='ExtColors'||key=='IntColors'){
         if(value.length==0){
+          return false;
+        }      
+      }
+      //see: https://en.wikipedia.org/wiki/Language_localisation
+      if (country=='it') {
+        if(key=='model_engine_bore_in'||key=='model_engine_stroke_in'||key=='model_weight_lbs'
+        ||key=='model_length_in'||key=='model_width_in'||key=='model_height_in'||key=='model_wheelbase_in'
+        ||key=='model_mpg_mixed'||key=='model_fuel_cap_g'||key=='model_mpg_hwy'||key=='model_mpg_city'
+        ||key=='model_engine_ci'||key=='model_engine_power_hp'||key=='model_engine_power_kw'
+        ||key=='model_engine_torque_lbft'||key=='model_engine_torque_kgm'||key=='model_top_speed_mph'){
+        cell=false;   
+        }      
+      }
+      if (country=='en') {
+        if(key=='model_engine_bore_mm'||key=='model_engine_stroke_mm'||key=='model_weight_kg'
+        ||key=='model_length_mm'||key=='model_width_mm'||key=='model_height_mm'||key=='model_wheelbase_mm'
+        ||key=='model_lkm_mixed'||key=='model_fuel_cap_l'||key=='model_lkm_hwy'||key=='model_lkm_city'
+        ||key=='model_engine_l'||key=='model_engine_power_ps'||key=='model_engine_power_rpm'
+        ||key=='model_engine_torque_nm'||key=='model_engine_torque_rpm'||key=='model_top_speed_kph'){
           cell=false;
         }      
       }
-    }
+    }    
     return cell;
   }
 
@@ -163,7 +181,7 @@ export default class Detail extends React.Component {
       let value = this.props.store.details[key];
       if (value!=null && value!='Not Avai' && value!='Not Available') {
         console.log('K: ' + key + ' V: ' + value);
-        let createCell = this.checkKeyDescriptions(key, value);
+        let createCell = this.checkKeyDescriptions(key, value, country);
         if (createCell) {
           if (key=='model_trim' && value=='') {
             value = 'Default';
