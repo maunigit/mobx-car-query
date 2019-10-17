@@ -20,6 +20,7 @@ exports[`Model renders correctly 1`] = `
     animating={true}
     color="green"
     hidesWhenStopped={true}
+    id="ai-indicator"
     size="large"
   />
 </View>

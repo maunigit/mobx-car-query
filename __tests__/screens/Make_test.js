@@ -11,3 +11,8 @@ it('Make renders correctly', () => {
     const wrapper = shallow(<Make.wrappedComponent store={store} />);
     expect(wrapper).toMatchSnapshot();
 });
+
+it('Make renders activityindicator-indicator', () => {     
+    const wrapper = shallow(<Make.wrappedComponent store={store}/>); 
+    expect(wrapper.exists('#ai-indicator')).toEqual(true);
+});

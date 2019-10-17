@@ -1,10 +1,18 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Trim from '../../src/screens/Trim';
 import Store from "../../src/stores/Store";
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-it('Trim renders correctly', () => {  
-    const store = Store;  
-    const tree = renderer.create(<Trim store={store} />).toJSON();
-    expect(tree).toMatchSnapshot();
+const store = Store;
+configure({adapter: new Adapter()});
+
+it('Trim renders correctly', () => {   
+    const wrapper = shallow(<Trim.wrappedComponent store={store} />);
+    expect(wrapper).toMatchSnapshot();
+});
+
+it('Trim renders activityindicator-indicator', () => {     
+    const wrapper = shallow(<Trim.wrappedComponent store={store}/>); 
+    expect(wrapper.exists('#ai-indicator')).toEqual(true);
 });
