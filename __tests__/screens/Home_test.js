@@ -22,7 +22,7 @@ it('Home renders X', () => {
 });
 
 /*
-//render without enzyme
+//render without enzyme (you have to import renderer)
 it('Home renders correctly', () => {     
   const tree = renderer.create(<Home store={store}/>).toJSON();
   expect(tree).toMatchSnapshot();
