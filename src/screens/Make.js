@@ -75,7 +75,7 @@ export default class Make extends React.Component {
     if (this.state.isLoading) {
       return (
         <View style={[globalStyles.container, globalStyles.horizontal]}>
-          <ActivityIndicator size="large" color="green" />
+          <ActivityIndicator id="ai-indicator" size="large" color="green" />
         </View>
       );
     } else if (this.props.store.makes.length == 0) {
