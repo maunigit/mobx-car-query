@@ -1,10 +1,13 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Make from '../../src/screens/Make';
 import Store from "../../src/stores/Store";
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-it('Make renders correctly', () => {  
-    const store = Store;  
-    const tree = renderer.create(<Make store={store} />).toJSON();
-    expect(tree).toMatchSnapshot();
+const store = Store;
+configure({adapter: new Adapter()});
+
+it('Make renders correctly', () => {
+    const wrapper = shallow(<Make.wrappedComponent store={store} />);
+    expect(wrapper).toMatchSnapshot();
 });
