@@ -9,10 +9,7 @@ import * as Localization from 'expo-localization';
 @inject('store')
 @observer
 export default class Detail extends React.Component {
-  state = { 
-    isLoading: true, 
-    reactlocale: ''
-  };
+  state = { isLoading: true };
 
   //Screen navigation
   static navigationOptions = {
@@ -44,12 +41,6 @@ export default class Detail extends React.Component {
       this.props.store.details = obj;
       console.log('data: ' + JSON.stringify(data));
       this.setState({ isLoading: false });
-      let locale = Localization.locale;
-      console.log('locale: ' + locale);
-      let tokens = locale.split('-');
-      let country = tokens[1];
-      console.log('split locale: ' + country);
-      this.setState({ reactlocale: country });
     } catch (error) {
       alert(error);
     }
@@ -158,6 +149,11 @@ export default class Detail extends React.Component {
 
   //List of details
   showDetails = () => {
+    let locale = Localization.locale;
+    console.log('Locale is: ' + locale);
+    let tokens = locale.split('-');
+    let country = tokens[0];
+    console.log('Country is: ' + country);
     let rows = [];
     let keys = Object.keys(this.props.store.details);
     let descriptions = this.createDescriptions();
