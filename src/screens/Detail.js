@@ -9,7 +9,10 @@ import * as Localization from 'expo-localization';
 @inject('store')
 @observer
 export default class Detail extends React.Component {
-  state = { isLoading: true };
+  state = { 
+    isLoading: true, 
+    reactlocale: ''
+  };
 
   //Screen navigation
   static navigationOptions = {
@@ -41,16 +44,24 @@ export default class Detail extends React.Component {
       this.props.store.details = obj;
       console.log('data: ' + JSON.stringify(data));
       this.setState({ isLoading: false });
+      let locale = Localization.locale;
+      console.log('locale: ' + locale);
+      let tokens = locale.split('-');
+      let country = tokens[1];
+      console.log('split locale: ' + country);
+      this.setState({ reactlocale: country });
     } catch (error) {
       alert(error);
     }
   };
 
+  //see: https://en.wikipedia.org/wiki/Language_localisation
   //Generate descriptions
   createDescriptions = () => {
     let descr = {
-      'model_id':'skip-model_id',
-      'model_make_id':'skip-model_make_id',
+      //International measures
+      'make_country':'Country of Origin',
+      'make_display':'Make',
       'model_name':'Model name',
       'model_trim':'Trim',
       'model_year':'Year',
@@ -60,20 +71,19 @@ export default class Detail extends React.Component {
       'model_engine_cyl':'Engine Cylinders',
       'model_engine_type':'Engine Type',
       'model_engine_valves_per_cyl':'Engine Valves Per Cylinder',
-      'model_engine_power_ps':'Engine Max Power (PS)',
-      'model_engine_power_rpm':'Engine Max Power RPM',
-      'model_engine_torque_nm':'Engine Max Torque (Nm)',
-      'model_engine_torque_rpm':'Engine Max Torque RPM',
-      'model_engine_bore_mm':'Engine Bore (mm)',
-      'model_engine_stroke_mm':'Engine Stroke (mm)',
+      'model_engine_valves':'Engine Valves',
       'model_engine_compression':'Engine Compression Ratio',
-      'model_engine_fuel':'Engine Fuel Type',
-      'model_top_speed_kph':'Top Speed (KPH)',
+      'model_engine_fuel':'Engine Fuel Type',      
       'model_0_to_100_kph':'0-100 kph',
       'model_drive':'Drive',
       'model_transmission_type':'Transmission Type',
       'model_seats':'Seats',
       'model_doors':'Doors',
+      'ExtColors':'Exterior Colors',
+      'IntColors':'Interior Colors',
+      //European measures
+      'model_engine_bore_mm':'Engine Bore (mm)',
+      'model_engine_stroke_mm':'Engine Stroke (mm)',
       'model_weight_kg':'Weight (kg)',
       'model_length_mm':'Length (mm)',
       'model_width_mm':'Width (mm)',
@@ -81,33 +91,32 @@ export default class Detail extends React.Component {
       'model_wheelbase_mm':'Wheelbase (mm)',
       'model_lkm_mixed':'Fuel Economy Mixed(l/100km)',
       'model_fuel_cap_l':'Fuel Capacity(l)',
-      'model_sold_in_us':'skip-model_sold_in_us',
-      'model_make_display':'skip-model_make_display',
+      'model_lkm_hwy':'Fuel Economy HWY(l/100km):',
+      'model_lkm_city':'Fuel Economy City(l/100km):',
       'model_engine_l':'Engine Displacement (l)',
-      'model_engine_ci':'Engine Displacement (cubic inches)',
+      'model_engine_power_ps':'Engine Max Power (PS)',
+      'model_engine_power_rpm':'Engine Max Power RPM',
+      'model_engine_torque_nm':'Engine Max Torque (Nm)',
+      'model_engine_torque_rpm':'Engine Max Torque RPM',
+      'model_top_speed_kph':'Top Speed (KPH)', 
+      //UK measures
       'model_engine_bore_in':'Engine Bore (in)',
       'model_engine_stroke_in':'Engine Stroke (in)',
-      'model_engine_valves':'Engine Valves',
-      'model_engine_power_hp':'Engine Max Power (HP)',
-      'model_engine_power_kw':'Engine Max Power (kW)',
-      'model_engine_torque_lbft':'Engine Max Torque (Lb-Ft)',
-      'model_engine_torque_kgm':'Engine Max Torque (kgf-m)',
-      'model_top_speed_mph':'Top Speed (MPH)',
       'model_weight_lbs':'Weight (lbs)',
       'model_length_in':'Length (in)',
       'model_width_in':'Width (in)',
       'model_height_in':'Height (in)',
       'model_wheelbase_in':'Wheelbase (in)',
-      'model_lkm_hwy':'Fuel Economy HWY(l/100km):',
-      'model_lkm_city':'Fuel Economy City(l/100km):',
       'model_mpg_mixed':'Fuel Economy Mixed(mpg)',
       'model_fuel_cap_g':'Fuel Capacity(g)',
       'model_mpg_hwy':'Fuel Economy HWY(mpg):',
-      'model_mpg_city':'Fuel Economy City(mpg):',      
-      'make_display':'Make',
-      'make_country':'Country of Origin',
-      'ExtColors':'Exterior Colors',
-      'IntColors':'Interior Colors'
+      'model_mpg_city':'Fuel Economy City(mpg):', 
+      'model_engine_ci':'Engine Displacement (cubic inches)',
+      'model_engine_power_hp':'Engine Max Power (HP)',
+      'model_engine_power_kw':'Engine Max Power (kW)',
+      'model_engine_torque_lbft':'Engine Max Torque (Lb-Ft)',
+      'model_engine_torque_kgm':'Engine Max Torque (kgf-m)',
+      'model_top_speed_mph':'Top Speed (MPH)'
     };
     return descr;
   };
