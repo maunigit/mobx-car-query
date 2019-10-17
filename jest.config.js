@@ -1,4 +1,5 @@
 //For a detailed explanation see: https://jestjs.io/docs/en/configuration.html
+//see https://github.com/mobxjs/mobx-react#testing-store-injection
 
 module.exports = {
   preset: "jest-expo",

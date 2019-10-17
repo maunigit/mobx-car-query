@@ -22,6 +22,7 @@ exports[`Home renders correctly 1`] = `
           "fontSize": 16,
         }
       }
+      id="li-make"
       left={[Function]}
       onPress={[Function]}
       title="Make"
@@ -46,6 +47,7 @@ exports[`Home renders correctly 1`] = `
           "fontSize": 16,
         }
       }
+      id="li-year"
       left={[Function]}
       onPress={[Function]}
       title="Year"
@@ -71,6 +73,7 @@ exports[`Home renders correctly 1`] = `
         }
       }
       disabled={true}
+      id="li-model"
       left={[Function]}
       onPress={[Function]}
       title="Model"
@@ -96,6 +99,7 @@ exports[`Home renders correctly 1`] = `
         }
       }
       disabled={true}
+      id="li-trim"
       left={[Function]}
       onPress={[Function]}
       title="Trim"
@@ -122,6 +126,7 @@ exports[`Home renders correctly 1`] = `
       color="orange"
       disabled={true}
       icon="check"
+      id="button-details"
       mode="contained"
       onPress={[Function]}
     >
@@ -130,6 +135,7 @@ exports[`Home renders correctly 1`] = `
     <withTheme(Button)
       color="lightgray"
       icon="close"
+      id="button-reset"
       mode="contained"
       onPress={[Function]}
     >
