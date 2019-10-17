@@ -123,17 +123,10 @@ export default class Detail extends React.Component {
           return false;
         }      
       }
-      //see: https://en.wikipedia.org/wiki/Language_localisation
-      if (country=='it') {
-        if(key=='model_engine_bore_in'||key=='model_engine_stroke_in'||key=='model_weight_lbs'
-        ||key=='model_length_in'||key=='model_width_in'||key=='model_height_in'||key=='model_wheelbase_in'
-        ||key=='model_mpg_mixed'||key=='model_fuel_cap_g'||key=='model_mpg_hwy'||key=='model_mpg_city'
-        ||key=='model_engine_ci'||key=='model_engine_power_hp'||key=='model_engine_power_kw'
-        ||key=='model_engine_torque_lbft'||key=='model_engine_torque_kgm'||key=='model_top_speed_mph'){
-        cell=false;   
-        }      
-      }
-      if (country=='en') {
+      //see: https://en.wikipedia.org/wiki/Imperial_units#Current_use
+      //see: https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+      if (country=='GB'||country=='IN'||country=='HK'||country=='CA'||country=='AU'||country=='NZ'
+      ||country=='IE'||country=='MY'||country=='PH'||country=='LK'||country=='ZA') {
         if(key=='model_engine_bore_mm'||key=='model_engine_stroke_mm'||key=='model_weight_kg'
         ||key=='model_length_mm'||key=='model_width_mm'||key=='model_height_mm'||key=='model_wheelbase_mm'
         ||key=='model_lkm_mixed'||key=='model_fuel_cap_l'||key=='model_lkm_hwy'||key=='model_lkm_city'
@@ -141,6 +134,15 @@ export default class Detail extends React.Component {
         ||key=='model_engine_torque_nm'||key=='model_engine_torque_rpm'||key=='model_top_speed_kph'){
           cell=false;
         }      
+      }
+      else{
+        if(key=='model_engine_bore_in'||key=='model_engine_stroke_in'||key=='model_weight_lbs'
+        ||key=='model_length_in'||key=='model_width_in'||key=='model_height_in'||key=='model_wheelbase_in'
+        ||key=='model_mpg_mixed'||key=='model_fuel_cap_g'||key=='model_mpg_hwy'||key=='model_mpg_city'
+        ||key=='model_engine_ci'||key=='model_engine_power_hp'||key=='model_engine_power_kw'
+        ||key=='model_engine_torque_lbft'||key=='model_engine_torque_kgm'||key=='model_top_speed_mph'){
+        cell=false;   
+        }
       }
     }    
     return cell;
@@ -170,7 +172,7 @@ export default class Detail extends React.Component {
     let locale = Localization.locale;
     console.log('Locale is: ' + locale);
     let tokens = locale.split('-');
-    let country = tokens[0];
+    let country = tokens[1];
     console.log('Country is: ' + country);
     let rows = [];
     let keys = Object.keys(this.props.store.details);
