@@ -1,16 +1,11 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
 import App from '../App';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-//Unit test
+configure({adapter: new Adapter()});
+
 it('App renders correctly', () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree).toBeTruthy();
-});
-
-//Snapshot test
-it('App test against snapshot', () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree).toMatchSnapshot();
+  const wrapper = shallow(<App />);
+  expect(wrapper).toMatchSnapshot();
 });
