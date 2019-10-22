@@ -22,7 +22,13 @@
       ]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./assets/images/icon-android.png",
+      "bundleIdentifier": "com.carquery.app"
+    },
+    "android": {
+      "package": "com.carquery.app",
+      "icon": "./assets/images/icon-android.png"
     }
   }
 }
