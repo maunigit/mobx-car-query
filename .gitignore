@@ -291,3 +291,4 @@ gradle-app.setting
 
 package-lock.json
 assets/images/png-cars/*
+.expo-shared
