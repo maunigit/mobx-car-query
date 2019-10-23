@@ -14,6 +14,8 @@ class Store {
   @observable trim_id = '';
   @observable trim_name = '';
   @observable details = [];
+  @observable colorTitle = false;
+  @observable colorDescription = false;
 }
 
 export default new Store();

@@ -6,18 +6,7 @@ import globalStyles from '../styles/Style';
 
 @inject('store')
 @observer
-export default class Home extends React.Component {
-  state = { 
-    makeTitleStyle: globalStyles.titleEnable,
-    yearTitleStyle: globalStyles.titleEnable,
-    modelTitleStyle: globalStyles.titleDisable,
-    trimTitleStyle: globalStyles.titleDisable,
-    makeDescriptionStyle: globalStyles.descriptionEnable,
-    yearDescriptionStyle: globalStyles.descriptionEnable,
-    modelDescriptionStyle: globalStyles.descriptionDisable,
-    trimDescriptionStyle: globalStyles.descriptionDisable
-  };
- 
+export default class Home extends React.Component { 
   //Screen navigation
   static navigationOptions = {
     title: 'Home',
@@ -32,8 +21,6 @@ export default class Home extends React.Component {
 
   disableModel = () => {
     if(this.props.store.make_id!=''&&this.props.store.year>0){
-      //this.setState({ modelTitleStyle: globalStyles.titleEnable });
-      //this.setState({ modelDescriptionStyle: globalStyles.descriptionEnable });
       return false;
     }
     return true;
@@ -91,6 +78,48 @@ export default class Home extends React.Component {
     return 'Avaiable trims of a model';
   }
 
+  checkColorTitle = () =>{
+    if(this.props.store.make_id!=''&&this.props.store.year>0){
+      return globalStyles.titleEnable;
+    }
+    return globalStyles.titleDisable;
+  }
+
+  checkColorTitleTrim = () =>{
+    if(this.props.store.model_name!=''){
+      return this.checkColorTitle();
+    }
+    return globalStyles.titleDisable;
+  }
+
+  checkColorDescription = () =>{
+    if(this.props.store.make_id!=''&&this.props.store.year>0){
+      return globalStyles.descriptionEnable;
+    }
+    return globalStyles.descriptionDisable;
+  }
+
+  checkColorDescriptionTrim = () =>{
+    if(this.props.store.model_name!=''){
+      return this.checkColorDescription();
+    }
+    return globalStyles.descriptionDisable;
+  }
+
+  checkColorIcon = () =>{
+    if(this.props.store.make_id!=''&&this.props.store.year>0){
+      return 'black';
+    }
+    return 'gray';
+  }
+
+  checkColorIconTrim = () =>{
+    if(this.props.store.model_name!=''){
+      return this.checkColorIcon();
+    }
+    return 'gray';
+  }
+
   //Show filters
   render() {
     return (
@@ -99,25 +128,25 @@ export default class Home extends React.Component {
           <List.Item id='li-make' button onPress={() => this.props.navigation.navigate('Make')}
             title={'Make'} description={this.checkDescriptionMake()}
             left={props => <List.Icon color={'black'} icon="car"/>} 
-            titleStyle={this.state.makeTitleStyle} descriptionStyle={this.state.makeDescriptionStyle} />
+            titleStyle={globalStyles.titleEnable} descriptionStyle={globalStyles.descriptionEnable} />
         </TouchableOpacity> 
         <TouchableOpacity >
           <List.Item id='li-year' button onPress={() => this.props.navigation.navigate('Year')} 
             title={'Year'} description={this.checkDescriptionYear()}
             left={props => <List.Icon color={'black'} icon="calendar-range"/>} 
-            titleStyle={this.state.yearTitleStyle} descriptionStyle={this.state.yearDescriptionStyle}/>
+            titleStyle={globalStyles.titleEnable} descriptionStyle={globalStyles.descriptionEnable}/>
         </TouchableOpacity>                  
         <TouchableOpacity >
           <List.Item id='li-model' button onPress={() => this.props.navigation.navigate('Model')} 
             title={'Model'} description={this.checkDescriptionModel()} disabled={this.disableModel()} 
-            left={props => <List.Icon color={'gray'} icon="car-side"/>} 
-            titleStyle={this.state.modelTitleStyle} descriptionStyle={this.state.modelDescriptionStyle} />
+            left={props => <List.Icon color={this.checkColorIcon()} icon="car-side"/>} 
+            titleStyle={this.checkColorTitle()} descriptionStyle={this.checkColorDescription()} />
         </TouchableOpacity>   
         <TouchableOpacity >
           <List.Item id='li-trim' button onPress={() => this.props.navigation.navigate('Trim')} 
             title={'Trim'} description={this.checkDescriptionTrim()} disabled={this.disableTrim()} 
-            left={props => <List.Icon color={'gray'} icon="engine-outline"/>} 
-            titleStyle={this.state.trimTitleStyle} descriptionStyle={this.state.trimDescriptionStyle}/>
+            left={props => <List.Icon color={this.checkColorIconTrim()} icon="engine-outline"/>} 
+            titleStyle={this.checkColorTitleTrim()} descriptionStyle={this.checkColorDescriptionTrim()}/>
         </TouchableOpacity>
         <View style={globalStyles.button}>
           <Button
