@@ -87,7 +87,7 @@ export default class Home extends React.Component {
 
   checkColorTitleTrim = () =>{
     if(this.props.store.model_name!=''){
-      return this.checkColorTitle();
+      return globalStyles.titleEnable;
     }
     return globalStyles.titleDisable;
   }
@@ -101,7 +101,7 @@ export default class Home extends React.Component {
 
   checkColorDescriptionTrim = () =>{
     if(this.props.store.model_name!=''){
-      return this.checkColorDescription();
+      return globalStyles.descriptionEnable;
     }
     return globalStyles.descriptionDisable;
   }
@@ -115,7 +115,7 @@ export default class Home extends React.Component {
 
   checkColorIconTrim = () =>{
     if(this.props.store.model_name!=''){
-      return this.checkColorIcon();
+      return 'black';
     }
     return 'gray';
   }
