@@ -125,32 +125,32 @@ export default class Home extends React.Component {
     return (
       <View style={globalStyles.homeContainer}>
         <TouchableOpacity >
-          <List.Item id='li-make' button onPress={() => this.props.navigation.navigate('Make')}
+          <List.Item accessibilityLabel='make' button onPress={() => this.props.navigation.navigate('Make')}
             title={'Make'} description={this.checkDescriptionMake()}
             left={props => <List.Icon color={'black'} icon="car"/>} 
             titleStyle={globalStyles.titleEnable} descriptionStyle={globalStyles.descriptionEnable} />
         </TouchableOpacity> 
         <TouchableOpacity >
-          <List.Item id='li-year' button onPress={() => this.props.navigation.navigate('Year')} 
+          <List.Item accessibilityLabel='year' button onPress={() => this.props.navigation.navigate('Year')} 
             title={'Year'} description={this.checkDescriptionYear()}
             left={props => <List.Icon color={'black'} icon="calendar-range"/>} 
             titleStyle={globalStyles.titleEnable} descriptionStyle={globalStyles.descriptionEnable}/>
         </TouchableOpacity>                  
         <TouchableOpacity >
-          <List.Item id='li-model' button onPress={() => this.props.navigation.navigate('Model')} 
+          <List.Item accessibilityLabel='model' button onPress={() => this.props.navigation.navigate('Model')} 
             title={'Model'} description={this.checkDescriptionModel()} disabled={this.disableModel()} 
             left={props => <List.Icon color={this.checkColorIcon()} icon="car-side"/>} 
             titleStyle={this.checkColorTitle()} descriptionStyle={this.checkColorDescription()} />
         </TouchableOpacity>   
         <TouchableOpacity >
-          <List.Item id='li-trim' button onPress={() => this.props.navigation.navigate('Trim')} 
+          <List.Item accessibilityLabel='trim' button onPress={() => this.props.navigation.navigate('Trim')} 
             title={'Trim'} description={this.checkDescriptionTrim()} disabled={this.disableTrim()} 
             left={props => <List.Icon color={this.checkColorIconTrim()} icon="engine-outline"/>} 
             titleStyle={this.checkColorTitleTrim()} descriptionStyle={this.checkColorDescriptionTrim()}/>
         </TouchableOpacity>
         <View style={globalStyles.button}>
           <Button
-            id="button-details"
+            accessibilityLabel="details"
             color="orange"
             mode="contained"
             icon="check"
@@ -159,7 +159,7 @@ export default class Home extends React.Component {
             show details
           </Button>
           <Button
-            id="button-reset"
+            accessibilityLabel="reset"
             color="lightgray"
             mode="contained"
             icon="close"
