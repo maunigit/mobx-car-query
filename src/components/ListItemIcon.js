@@ -1,26 +1,35 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 import { List, TouchableRipple } from 'react-native-paper';
 import { ICONS_MAKES } from '../constantsMakes';
+import globalStyles from '../styles/Style';
 
-//Optimize list performance
+/**
+ * Optimize performance of list with icons
+ */
 export default class ListItemIcon extends React.PureComponent {
-  //Makes png
+  /**
+   * Retrive the icon in png of the Make 
+   */
   getIconMakes = iconName => {
     let icon_png = ICONS_MAKES[iconName];
-    //Default Make icon if we haven't the corresponding png
+    //Default icon if we haven't the corresponding Make png
     if (!icon_png) {
       iconName = 'circle_grey';
     }
     return ICONS_MAKES[iconName];
   };
 
-  //Press on Make
+  /**
+   * Press on a Make
+   */
   _onPress = () => {
     this.props.onPressItem(this.props.save);
   };
 
-  //Show Makes list
+  /**
+   * Show Makes list
+   */
   render() {
     let iconMake = this.getIconMakes(this.props.icon);
     return (
@@ -29,14 +38,9 @@ export default class ListItemIcon extends React.PureComponent {
           button
           onPress={this._onPress}
           title={this.props.title}
-          left={props => <Image source={iconMake} style={styles.images} />}
+          left={props => <Image source={iconMake} style={globalStyles.icon} />}
         />
       </TouchableRipple>
     );
   }
 }
-
-//Style
-const styles = StyleSheet.create({
-  images: { width: 30, height: 30 },
-});

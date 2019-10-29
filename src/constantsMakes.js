@@ -1,7 +1,9 @@
 var pathIconsCar = '../assets/images/png-cars/';
 
+/**
+ * Icons of Makes
+ */
 export const ICONS_MAKES = {
-  //Makes icon
   abarth: require(pathIconsCar + 'abarth.png'),
   'alfa-romeo': require(pathIconsCar + 'alfa-romeo.png'),
   'aston-martin': require(pathIconsCar + 'aston-martin.png'),

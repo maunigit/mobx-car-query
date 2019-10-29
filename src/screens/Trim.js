@@ -10,7 +10,9 @@ import globalStyles from '../styles/Style';
 export default class Trim extends React.Component {
   state = { isLoading: true };
 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Trim',
   };
@@ -20,7 +22,9 @@ export default class Trim extends React.Component {
     this.getTrims();
   }
 
-  //Fetch trims
+  /**
+   * Fetch trims
+   */
   getTrims = async () => {
     try {
       let URL_TRIMS =
@@ -45,6 +49,9 @@ export default class Trim extends React.Component {
     }
   };
 
+  /**
+   * Go back
+   */
   goBack = item => {
     console.log('Trim selected is: ' + item.model_trim);
     console.log('This trim has model_id: ' + item.model_id);
@@ -57,7 +64,9 @@ export default class Trim extends React.Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  //Render every item of the list
+  /**
+   * Render every item of the list
+   */
   renderItem = ({ item }) => {
     if (item.model_trim == '') {
       item.model_trim = 'Default';
@@ -65,7 +74,9 @@ export default class Trim extends React.Component {
     return <ListItemNoIcon onPressItem={this.goBack} title={item.model_trim} save={item} />;
   };
 
-  //List of trims
+  /**
+   * List of trims
+   */
   showTrims = () => {
     return (
       <FlatList
@@ -76,7 +87,9 @@ export default class Trim extends React.Component {
     );
   };
 
-  //Show trims
+  /**
+   * Show trims
+   */
   render() {
     if (this.state.isLoading) {
       return (

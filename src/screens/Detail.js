@@ -11,7 +11,9 @@ import * as Localization from 'expo-localization';
 export default class Detail extends React.Component {
   state = { isLoading: true };
 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Detail',
   };
@@ -21,7 +23,9 @@ export default class Detail extends React.Component {
     this.getDetails();
   }
 
-  //Fetch details
+  /**
+   * Fetch details
+   */
   getDetails = async () => {
     try {
       let URL_DETAILS =
@@ -46,7 +50,9 @@ export default class Detail extends React.Component {
     }
   };
 
-  //Generate descriptions
+  /**
+   * Create descriptions
+   */
   createDescriptions = () => {
     let descr = {
       //International measures
@@ -111,7 +117,12 @@ export default class Detail extends React.Component {
     return descr;
   };
 
-  //Check key of descriptions
+  /**
+   * Check if key of descriptions has to be display
+   * 
+   * see: https://en.wikipedia.org/wiki/Imperial_units#Current_use
+   * see: https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+   */
   checkKeyDescriptions = (key, value, country) => {
     let cell=true;
     if(key=='model_id'||key=='model_make_id'||key=='model_sold_in_us'
@@ -122,9 +133,7 @@ export default class Detail extends React.Component {
         if(value.length==0){
           return false;
         }      
-      }
-      //see: https://en.wikipedia.org/wiki/Imperial_units#Current_use
-      //see: https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+      }      
       if (country=='GB'||country=='IN'||country=='HK'||country=='CA'||country=='AU'||country=='NZ'
       ||country=='IE'||country=='MY'||country=='PH'||country=='LK'||country=='ZA') {
         if(key=='model_engine_bore_mm'||key=='model_engine_stroke_mm'||key=='model_weight_kg'
@@ -148,7 +157,9 @@ export default class Detail extends React.Component {
     return cell;
   }
 
-  //Generate country and make cells
+  /**
+   * Create country and make cells
+   */
   createCountryAndMakeCells = (descriptions, cells) => {
     let i= -2;
     cells.push(
@@ -167,7 +178,9 @@ export default class Detail extends React.Component {
     return cells;
   }
 
-  //List of details
+  /**
+   * List of details
+   */
   showDetails = () => {
     let locale = Localization.locale;
     console.log('Locale is: ' + locale);
@@ -205,7 +218,9 @@ export default class Detail extends React.Component {
     );
   };
 
-  //Show details
+  /**
+   * Show details
+   */
   render() {
     if (this.state.isLoading) {
       return (
