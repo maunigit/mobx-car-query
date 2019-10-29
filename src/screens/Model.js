@@ -10,7 +10,9 @@ import globalStyles from '../styles/Style';
 export default class Model extends React.Component {
   state = { isLoading: true };
 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Model',
   };
@@ -20,7 +22,9 @@ export default class Model extends React.Component {
     this.getModels();
   }
 
-  //Fetch models
+  /**
+   * Fetch models
+   */
   getModels = async () => {
     try {
       let URL_MODELS =
@@ -43,6 +47,9 @@ export default class Model extends React.Component {
     }
   };
 
+  /**
+   * Go back
+   */
   goBack = item => {
     console.log('Model_name selected is: ' + item.model_name);
     this.props.store.model_name = item.model_name;
@@ -54,12 +61,16 @@ export default class Model extends React.Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  //Render every item of the list
+  /**
+   * Render every item of the list
+   */
   renderItem = ({ item }) => {
     return <ListItemNoIcon onPressItem={this.goBack} title={item.model_name} save={item} />;
   };
 
-  //List of models
+  /**
+   * List of models
+   */
   showModels = () => {
     return (
       <FlatList
@@ -70,7 +81,9 @@ export default class Model extends React.Component {
     );
   };
 
-  //Show models
+  /**
+   * Show models
+   */
   render() {
     if (this.state.isLoading) {
       return (

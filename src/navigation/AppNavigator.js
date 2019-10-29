@@ -7,7 +7,9 @@ import Model from '../screens/Model';
 import Trim from '../screens/Trim';
 import Detail from '../screens/Detail';
 
-//Navigation roots
+/**
+ * Navigation roots
+ */
 const AppNavigator = createStackNavigator(
   {
     Home,
@@ -23,7 +25,7 @@ const AppNavigator = createStackNavigator(
     headerMode: 'float',
     headerTransitionPreset: 'fade-in-place',
     mode: 'card',
-    //Screen header config
+    //Screens header config
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: 'indianred',

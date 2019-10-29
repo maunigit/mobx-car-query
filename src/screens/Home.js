@@ -7,7 +7,9 @@ import globalStyles from '../styles/Style';
 @inject('store')
 @observer
 export default class Home extends React.Component { 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Home',
     headerRight: (
@@ -19,6 +21,9 @@ export default class Home extends React.Component {
     )
   };
 
+  /**
+   * Disable/Enable Model
+   */
   disableModel = () => {
     if(this.props.store.make_id!=''&&this.props.store.year>0){
       return false;
@@ -26,6 +31,9 @@ export default class Home extends React.Component {
     return true;
   }
 
+  /**
+   * Disable/Enable Trim
+   */
   disableTrim = () => {
     if(this.props.store.model_name!=''){
       return false;
@@ -33,6 +41,9 @@ export default class Home extends React.Component {
     return true;
   }
 
+  /**
+   * Disable/Enable Detail
+   */
   disableDetail = () => {
     if(this.props.store.trim_id!=''){
       return false;
@@ -40,6 +51,9 @@ export default class Home extends React.Component {
     return true;
   }
 
+  /**
+   * Reset all informations stored
+   */
   reset = () =>{
     console.log('Press reset');
     this.props.store.make_id='';
@@ -50,6 +64,9 @@ export default class Home extends React.Component {
     this.props.store.trim_name='';
   }
 
+  /**
+   * Check description of Make
+   */
   checkDescriptionMake = () =>{
     if(this.props.store.make_display!=''){
       return this.props.store.make_display;
@@ -57,6 +74,9 @@ export default class Home extends React.Component {
     return 'Select a make';
   }
 
+  /**
+   * Check description of Year
+   */
   checkDescriptionYear = () =>{
     if(this.props.store.year>0){
       return this.props.store.year;
@@ -64,6 +84,9 @@ export default class Home extends React.Component {
     return 'Select a year';
   }
 
+  /**
+   * Check description of Model
+   */
   checkDescriptionModel = () =>{
     if(this.props.store.model_name!=''){
       return this.props.store.model_name;
@@ -71,6 +94,9 @@ export default class Home extends React.Component {
     return 'Avaiable models of a make';
   }
 
+  /**
+   * Check description of Trim
+   */
   checkDescriptionTrim = () =>{
     if(this.props.store.trim_name!=''){
       return this.props.store.trim_name;
@@ -78,6 +104,9 @@ export default class Home extends React.Component {
     return 'Avaiable trims of a model';
   }
 
+  /**
+   * Check color of the title
+   */
   checkColorTitle = () =>{
     if(this.props.store.make_id!=''&&this.props.store.year>0){
       return globalStyles.titleEnable;
@@ -85,6 +114,9 @@ export default class Home extends React.Component {
     return globalStyles.titleDisable;
   }
 
+  /**
+   * Check color of trim title
+   */
   checkColorTitleTrim = () =>{
     if(this.props.store.model_name!=''){
       return globalStyles.titleEnable;
@@ -92,6 +124,9 @@ export default class Home extends React.Component {
     return globalStyles.titleDisable;
   }
 
+  /**
+   * Check color of the description
+   */
   checkColorDescription = () =>{
     if(this.props.store.make_id!=''&&this.props.store.year>0){
       return globalStyles.descriptionEnable;
@@ -99,6 +134,9 @@ export default class Home extends React.Component {
     return globalStyles.descriptionDisable;
   }
 
+  /**
+   * Check color of trim description
+   */
   checkColorDescriptionTrim = () =>{
     if(this.props.store.model_name!=''){
       return globalStyles.descriptionEnable;
@@ -106,6 +144,9 @@ export default class Home extends React.Component {
     return globalStyles.descriptionDisable;
   }
 
+  /**
+   * Check color of the icon
+   */
   checkColorIcon = () =>{
     if(this.props.store.make_id!=''&&this.props.store.year>0){
       return 'black';
@@ -113,6 +154,9 @@ export default class Home extends React.Component {
     return 'gray';
   }
 
+  /**
+   * Check color of trim icon
+   */
   checkColorIconTrim = () =>{
     if(this.props.store.model_name!=''){
       return 'black';
@@ -120,7 +164,9 @@ export default class Home extends React.Component {
     return 'gray';
   }
 
-  //Show filters
+  /**
+   * Show filters and buttons
+   */
   render() {
     return (
       <View style={globalStyles.homeContainer}>

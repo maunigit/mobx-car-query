@@ -11,7 +11,9 @@ const URL_YEARS = 'https://www.carqueryapi.com/api/0.3/?&cmd=getYears';
 export default class Year extends React.Component {
   state = { isLoading: true };
 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Year',
   };
@@ -21,7 +23,9 @@ export default class Year extends React.Component {
     this.getBoundaryYears();
   }
 
-  //Fetch boundary years
+  /**
+   * Fetch boundary years
+   */
   getBoundaryYears = async () => {
     try {
       let response = await fetch(URL_YEARS);
@@ -38,6 +42,9 @@ export default class Year extends React.Component {
     }
   };
 
+  /**
+   * Go back
+   */
   goBack = item => {
     console.log('Year selected is: ' + item.year);
     this.props.store.year = item.year;     
@@ -50,12 +57,16 @@ export default class Year extends React.Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  //Render every item of the list
+  /**
+   * Render every item of the list
+   */
   renderItem = ({ item }) => {
     return <ListItemNoIcon onPressItem={this.goBack} title={item.year} save={item} />;
   };
 
-  //Generate years between two boundary
+  /**
+   * Generate years between two boundary
+   */
   createYears = () => {
     let max = parseInt(this.props.store.maxYear);
     let min = parseInt(this.props.store.minYear);
@@ -66,7 +77,9 @@ export default class Year extends React.Component {
     return years;
   };
 
-  //List of the years
+  /**
+   * List of the years
+   */
   showYears = () => {
     return (
       <FlatList
@@ -77,7 +90,9 @@ export default class Year extends React.Component {
     );
   };
 
-  //Show years
+  /**
+   * Show years
+   */
   render() {
     if (this.state.isLoading) {
       return (

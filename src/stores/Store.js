@@ -1,6 +1,8 @@
 import { observable } from 'mobx';
 
-//Place to store information
+/**
+ * Place to store informations
+ */
 class Store {
   @observable makes = [];
   @observable make_id = '';

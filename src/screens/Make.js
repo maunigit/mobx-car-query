@@ -12,7 +12,9 @@ const URL_MAKES = 'https://www.carqueryapi.com/api/0.3/?cmd=getMakes&year=-1';
 export default class Make extends React.Component {
   state = { isLoading: true };
 
-  //Screen navigation
+  /**
+   * Screen navigation options
+   */
   static navigationOptions = {
     title: 'Make',
   };
@@ -22,7 +24,9 @@ export default class Make extends React.Component {
     this.getMakes();
   }
 
-  //Fetch Makes
+  /**
+   * Fetch Makes
+   */
   getMakes = async () => {
     try {
       let response = await fetch(URL_MAKES);
@@ -39,6 +43,9 @@ export default class Make extends React.Component {
     }
   };
 
+  /**
+   * Go back
+   */
   goBack = make => {
     console.log('Make_id selected is: ' + make.make_id);
     this.props.store.make_id = make.make_id;
@@ -52,14 +59,18 @@ export default class Make extends React.Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  //Render every item of the list
+  /**
+   * Render every item of the list
+   */
   renderItem = ({ item }) => {
     return (
       <ListItemIcon onPressItem={this.goBack} title={item.make_display} icon={item.make_id} save={item}/>
     );
   };
 
-  //List of Makes
+  /**
+   * List of Makes
+   */
   showMakes = () => {
     return (
       <FlatList
@@ -70,7 +81,9 @@ export default class Make extends React.Component {
     );
   };
 
-  //Show Makes
+  /**
+   * Show Makes
+   */
   render() {
     if (this.state.isLoading) {
       return (

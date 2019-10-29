@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
 
+/**
+ * Global style
+ */
 export default StyleSheet.create({
     homeContainer: { 
         flex: 1,         
@@ -48,4 +51,5 @@ export default StyleSheet.create({
       color: 'black',    
       fontSize: 16,
     },
+    icon: { width: 30, height: 30 },
 });

@@ -6,7 +6,9 @@ import Store from "./src/stores/Store";
 import AppNavigator from './src/navigation/AppNavigator';
 import globalStyles from './src/styles/Style';
 
-//Navigable app
+/**
+ * Navigable app
+ */
 export default class App extends React.Component {
   render() {
     return (
@@ -24,10 +26,12 @@ export default class App extends React.Component {
   }
 }
 
-//Theme of the app
+/**
+ * Theme of the app
+ */
 const theme = {
   ...DefaultTheme,
-  dark: false,
+  dark: false, //must be false
   roundness: 8,
   colors: {
       ...DefaultTheme.colors,
