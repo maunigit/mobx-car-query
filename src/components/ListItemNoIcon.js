@@ -18,7 +18,7 @@ export default class ListItemNoIcon extends React.PureComponent {
   render() {
     return (
       <TouchableRipple>
-        <List.Item button onPress={this._onPress} title={this.props.title} />
+        <List.Item accessibilityLabel={''+this.props.title} button onPress={this._onPress} title={this.props.title} />
       </TouchableRipple>
     );
   }

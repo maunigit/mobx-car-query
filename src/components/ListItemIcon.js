@@ -34,7 +34,7 @@ export default class ListItemIcon extends React.PureComponent {
     let iconMake = this.getIconMakes(this.props.icon);
     return (
       <TouchableRipple>
-        <List.Item
+        <List.Item accessibilityLabel={this.props.title} 
           button
           onPress={this._onPress}
           title={this.props.title}
