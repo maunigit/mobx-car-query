@@ -14,6 +14,7 @@ exports[`Home renders correctly 1`] = `
     activeOpacity={0.2}
   >
     <withTheme(List.Item)
+      accessibilityLabel="make"
       button={true}
       description="Select a make"
       descriptionStyle={
@@ -22,7 +23,6 @@ exports[`Home renders correctly 1`] = `
           "fontSize": 16,
         }
       }
-      id="li-make"
       left={[Function]}
       onPress={[Function]}
       title="Make"
@@ -39,6 +39,7 @@ exports[`Home renders correctly 1`] = `
     activeOpacity={0.2}
   >
     <withTheme(List.Item)
+      accessibilityLabel="year"
       button={true}
       description="Select a year"
       descriptionStyle={
@@ -47,7 +48,6 @@ exports[`Home renders correctly 1`] = `
           "fontSize": 16,
         }
       }
-      id="li-year"
       left={[Function]}
       onPress={[Function]}
       title="Year"
@@ -64,6 +64,7 @@ exports[`Home renders correctly 1`] = `
     activeOpacity={0.2}
   >
     <withTheme(List.Item)
+      accessibilityLabel="model"
       button={true}
       description="Avaiable models of a make"
       descriptionStyle={
@@ -73,7 +74,6 @@ exports[`Home renders correctly 1`] = `
         }
       }
       disabled={true}
-      id="li-model"
       left={[Function]}
       onPress={[Function]}
       title="Model"
@@ -90,6 +90,7 @@ exports[`Home renders correctly 1`] = `
     activeOpacity={0.2}
   >
     <withTheme(List.Item)
+      accessibilityLabel="trim"
       button={true}
       description="Avaiable trims of a model"
       descriptionStyle={
@@ -99,7 +100,6 @@ exports[`Home renders correctly 1`] = `
         }
       }
       disabled={true}
-      id="li-trim"
       left={[Function]}
       onPress={[Function]}
       title="Trim"
@@ -123,19 +123,19 @@ exports[`Home renders correctly 1`] = `
     }
   >
     <withTheme(Button)
+      accessibilityLabel="details"
       color="orange"
       disabled={true}
       icon="check"
-      id="button-details"
       mode="contained"
       onPress={[Function]}
     >
       show details
     </withTheme(Button)>
     <withTheme(Button)
+      accessibilityLabel="reset"
       color="lightgray"
       icon="close"
-      id="button-reset"
       mode="contained"
       onPress={[Function]}
     >

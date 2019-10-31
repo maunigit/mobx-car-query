@@ -14,33 +14,33 @@ it('Home renders correctly', () => {
 
 it('Home renders listitem-make', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>); 
-  expect(wrapper.exists('#li-make')).toEqual(true);
+  expect(wrapper.exists('[accessibilityLabel="make"]')).toEqual(true);
 });
 
 it('Home renders listitem-year', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>); 
-  expect(wrapper.exists('#li-year')).toEqual(true);
+  expect(wrapper.exists('[accessibilityLabel="year"]')).toEqual(true);
 });
 
 it('Home renders listitem-model disabled', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>);
-  const listItemElement = wrapper.find('#li-model');  
+  const listItemElement = wrapper.find('[accessibilityLabel="model"]');  
   expect(listItemElement.props().disabled).toBe(true);
 });
 
 it('Home renders listitem-trim disabled', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>);
-  const listItemElement = wrapper.find('#li-trim');  
+  const listItemElement = wrapper.find('[accessibilityLabel="trim"]');  
   expect(listItemElement.props().disabled).toBe(true);
 });
 
 it('Home renders button-details disabled', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>);
-  const listItemElement = wrapper.find('#button-details');  
+  const listItemElement = wrapper.find('[accessibilityLabel="details"]');  
   expect(listItemElement.props().disabled).toBe(true);
 });
 
 it('Home renders button-reset', () => {     
   const wrapper = shallow(<Home.wrappedComponent store={store}/>);
-  expect(wrapper.exists('#button-reset')).toEqual(true);
+  expect(wrapper.exists('[accessibilityLabel="reset"]')).toEqual(true);
 });
