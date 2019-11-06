@@ -1,3 +1,3 @@
-# Carquery
+# CarQuery
 
-Search cars
+Hybrid mobile app for searching cars, created with Expo.
